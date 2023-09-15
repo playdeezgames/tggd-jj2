@@ -1,6 +1,7 @@
 ﻿Friend Module MainMenu
     Friend Sub Run()
         Dim done As Boolean = False
+        Dim model As IWorldModel = New WorldModel
         While Not done
             AnsiConsole.Clear()
             Dim prompt As New SelectionPrompt(Of String) With

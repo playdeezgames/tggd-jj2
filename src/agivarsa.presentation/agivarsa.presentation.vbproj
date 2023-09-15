@@ -3,7 +3,7 @@
   <PropertyGroup>
     <RootNamespace>agivarsa.presentation</RootNamespace>
     <TargetFramework>netstandard2.1</TargetFramework>
-    <ImportedNamespaces>Spectre.Console=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,agivarsa.presentation=True</ImportedNamespaces>
+    <ImportedNamespaces>agivarsa.model=False,Spectre.Console=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,agivarsa.presentation=True</ImportedNamespaces>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,7 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Import Include="agivarsa.model" />
     <Import Include="Spectre.Console" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\agivarsa.model\agivarsa.model.vbproj" />
   </ItemGroup>
 
 </Project>

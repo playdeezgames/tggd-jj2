@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_STUFF", "_STUFF", "{BC6DBD
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "agivarsa.presentation", "agivarsa.presentation\agivarsa.presentation.vbproj", "{CF78035A-DABD-4BB0-9F2A-AF68ECC167B8}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "agivarsa.model", "agivarsa.model\agivarsa.model.vbproj", "{62EBABDD-CBF5-4225-BCF1-61F5753D5028}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{CF78035A-DABD-4BB0-9F2A-AF68ECC167B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF78035A-DABD-4BB0-9F2A-AF68ECC167B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF78035A-DABD-4BB0-9F2A-AF68ECC167B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62EBABDD-CBF5-4225-BCF1-61F5753D5028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62EBABDD-CBF5-4225-BCF1-61F5753D5028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62EBABDD-CBF5-4225-BCF1-61F5753D5028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62EBABDD-CBF5-4225-BCF1-61F5753D5028}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
