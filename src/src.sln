@@ -5,6 +5,11 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "agivarsa", "agivarsa\agivarsa.vbproj", "{F01FAB98-0E5B-42AE-BE5F-DEB7F1641C59}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_STUFF", "_STUFF", "{BC6DBDBC-1B05-453C-9BDF-EE1026AFF60A}"
+	ProjectSection(SolutionItems) = preProject
+		..\shippit.sh = ..\shippit.sh
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
