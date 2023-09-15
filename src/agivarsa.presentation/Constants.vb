@@ -7,4 +7,5 @@
     Friend Const OkText As String = "Ok"
     Friend Const QuitText As String = "Quit"
     Friend Const YesText As String = "Yes"
+    Friend Const EmbarkText As String = "Embark!"
 End Module
