@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_STUFF", "_STUFF", "{BC6DBD
 		..\shippit.sh = ..\shippit.sh
 	EndProjectSection
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "agivarsa.presentation", "agivarsa.presentation\agivarsa.presentation.vbproj", "{CF78035A-DABD-4BB0-9F2A-AF68ECC167B8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{F01FAB98-0E5B-42AE-BE5F-DEB7F1641C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F01FAB98-0E5B-42AE-BE5F-DEB7F1641C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F01FAB98-0E5B-42AE-BE5F-DEB7F1641C59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF78035A-DABD-4BB0-9F2A-AF68ECC167B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF78035A-DABD-4BB0-9F2A-AF68ECC167B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF78035A-DABD-4BB0-9F2A-AF68ECC167B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF78035A-DABD-4BB0-9F2A-AF68ECC167B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

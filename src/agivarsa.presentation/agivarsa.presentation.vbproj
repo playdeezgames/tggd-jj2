@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>agivarsa.presentation</RootNamespace>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <ImportedNamespaces>Spectre.Console=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,agivarsa.presentation=True</ImportedNamespaces>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Spectre.Console" Version="0.47.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Import Include="Spectre.Console" />
+  </ItemGroup>
+
+</Project>

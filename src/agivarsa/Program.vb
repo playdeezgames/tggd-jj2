@@ -2,6 +2,6 @@ Imports System
 
 Module Program
     Sub Main(args As String())
-        Console.WriteLine("AGIVARSA")
+        Renderer.Run()
     End Sub
 End Module
