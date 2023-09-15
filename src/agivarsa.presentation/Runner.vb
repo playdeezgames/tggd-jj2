@@ -1,4 +1,4 @@
-Public Module Renderer
+Public Module Runner
     Private Const GameTitle As String = "AGIVARSA"
     Private Const GameSubtitle As String = "A Game in VB.NET About Requiring Some Assembly"
     Private Const QuitText As String = "Quit"

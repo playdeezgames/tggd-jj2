@@ -2,6 +2,6 @@ Imports System
 
 Module Program
     Sub Main(args As String())
-        Renderer.Run()
+        Runner.Run()
     End Sub
 End Module
