@@ -8,4 +8,7 @@
     Friend Const QuitText As String = "Quit"
     Friend Const YesText As String = "Yes"
     Friend Const EmbarkText As String = "Embark!"
+    Friend Const AbandonGameText As String = "Abandon Game"
+    Friend Const ConfirmAbandonGamePrompt As String = "[red]Are you sure you want to abandon the game?[/]"
+    Friend Const ContinueGameText As String = "Continue Game"
 End Module

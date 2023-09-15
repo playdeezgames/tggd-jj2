@@ -14,6 +14,10 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "agivarsa.presentation", "ag
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "agivarsa.model", "agivarsa.model\agivarsa.model.vbproj", "{62EBABDD-CBF5-4225-BCF1-61F5753D5028}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "agivarsa.persistance", "agivarsa.persistance\agivarsa.persistance.vbproj", "{8C1BC5FF-46D5-4E3D-937C-DFAD3416EFFB}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "agivarsa.data", "agivarsa.data\agivarsa.data.vbproj", "{02263FA2-166F-4E88-81F7-84EDA4E9A519}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +36,14 @@ Global
 		{62EBABDD-CBF5-4225-BCF1-61F5753D5028}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62EBABDD-CBF5-4225-BCF1-61F5753D5028}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62EBABDD-CBF5-4225-BCF1-61F5753D5028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C1BC5FF-46D5-4E3D-937C-DFAD3416EFFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C1BC5FF-46D5-4E3D-937C-DFAD3416EFFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C1BC5FF-46D5-4E3D-937C-DFAD3416EFFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C1BC5FF-46D5-4E3D-937C-DFAD3416EFFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02263FA2-166F-4E88-81F7-84EDA4E9A519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02263FA2-166F-4E88-81F7-84EDA4E9A519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02263FA2-166F-4E88-81F7-84EDA4E9A519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02263FA2-166F-4E88-81F7-84EDA4E9A519}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

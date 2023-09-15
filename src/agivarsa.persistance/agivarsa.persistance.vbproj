@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <RootNamespace>agivarsa.persistance</RootNamespace>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <ImportedNamespaces>agivarsa.data=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,agivarsa.persistance=True</ImportedNamespaces>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\agivarsa.data\agivarsa.data.vbproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Import Include="agivarsa.data" />
+  </ItemGroup>
+
+</Project>
