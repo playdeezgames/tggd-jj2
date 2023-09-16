@@ -1,32 +1,43 @@
 ﻿Friend Module MainMenu
+    Private ReadOnly commandTable As IReadOnlyDictionary(Of String, Func(Of IWorldModel, Boolean)) =
+        New Dictionary(Of String, Func(Of IWorldModel, Boolean)) From
+        {
+            {ContinueGameText, AddressOf InPlayView.Run},
+            {AbandonGameText, AddressOf ConfirmAbandonView.Run},
+            {QuitText, AddressOf ConfirmQuitView.Run},
+            {EmbarkText, AddressOf EmbarkView.Run}
+        }
+    Private ReadOnly promptConditions As IReadOnlyList(Of (text As String, condition As Func(Of IWorldModel, Boolean))) =
+        New List(Of (text As String, condition As Func(Of IWorldModel, Boolean))) From
+        {
+            (ContinueGameText, Function(m) m.IsInPlay),
+            (SaveGameText, Function(m) m.IsInPlay),
+            (AbandonGameText, Function(m) m.IsInPlay),
+            (EmbarkText, Function(m) Not m.IsInPlay),
+            (LoadGameText, Function(m) Not m.IsInPlay),
+            (QuitText, Function(m) Not m.IsInPlay)
+        }
     Friend Sub Run()
-        Dim done As Boolean = False
         Dim model As IWorldModel = New WorldModel
-        While Not done
+        Dim command As String
+        Do
             AnsiConsole.Clear()
-            Dim prompt As New SelectionPrompt(Of String) With
-                {
-                    .Title = MainMenuTitle
-                }
-            If model.IsInPlay Then
-                prompt.AddChoice(ContinueGameText)
-                prompt.AddChoice(SaveGameText)
-                prompt.AddChoice(AbandonGameText)
-            Else
-                prompt.AddChoice(EmbarkText)
-                prompt.AddChoice(LoadGameText)
-                prompt.AddChoice(QuitText)
-            End If
-            Select Case AnsiConsole.Prompt(prompt)
-                Case ContinueGameText
-                    done = InPlayView.Run(model)
-                Case AbandonGameText
-                    done = ConfirmAbandonView.Run(model)
-                Case EmbarkText
-                    done = EmbarkView.Run(model)
-                Case QuitText
-                    done = ConfirmQuitView.Run(model)
-            End Select
-        End While
+            command = PromptUser(MainMenuTitle, model)
+        Loop Until commandTable(command)(model)
     End Sub
+
+    Private Function PromptUser(title As String, model As IWorldModel) As String
+        Dim command As String
+        Dim prompt As New SelectionPrompt(Of String) With
+                        {
+                            .Title = title
+                        }
+        For Each promptCondition In promptConditions
+            If promptCondition.condition(model) Then
+                prompt.AddChoice(promptCondition.text)
+            End If
+        Next
+        command = AnsiConsole.Prompt(prompt)
+        Return command
+    End Function
 End Module
