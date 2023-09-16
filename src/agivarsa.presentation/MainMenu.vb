@@ -22,22 +22,7 @@
         Dim command As String
         Do
             AnsiConsole.Clear()
-            command = PromptUser(MainMenuTitle, model)
+            command = PromptUser(MainMenuTitle, model, promptConditions)
         Loop Until commandTable(command)(model)
     End Sub
-
-    Private Function PromptUser(title As String, model As IWorldModel) As String
-        Dim command As String
-        Dim prompt As New SelectionPrompt(Of String) With
-                        {
-                            .Title = title
-                        }
-        For Each promptCondition In promptConditions
-            If promptCondition.condition(model) Then
-                prompt.AddChoice(promptCondition.text)
-            End If
-        Next
-        command = AnsiConsole.Prompt(prompt)
-        Return command
-    End Function
 End Module
