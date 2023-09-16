@@ -22,7 +22,16 @@ Public Class WorldModel
         Try
             worldData = JsonSerializer.Deserialize(Of WorldData)(System.IO.File.ReadAllText(filename))
             Return True
-        Catch ex As Exception
+        Catch
+            Return False
+        End Try
+    End Function
+
+    Public Function Save(filename As String) As Boolean Implements IWorldModel.Save
+        Try
+            System.IO.File.WriteAllText(filename, JsonSerializer.Serialize(worldData))
+            Return True
+        Catch
             Return False
         End Try
     End Function

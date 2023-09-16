@@ -19,4 +19,7 @@
     Friend Const GameLoadedMessage As String = "[green]Game Loaded![/]"
     Friend Const FailedLoadMessage As String = "[red]Game Load Failed![/]"
     Friend Const CancelLoadMessage As String = "Canceled Load."
+    Friend Const GameSavedMessage As String = "[green]Game Saved![/]"
+    Friend Const FailedSaveMessage As String = "[red]Game Save Failed![/]"
+    Friend Const CancelSaveMessage As String = "Canceled Save."
 End Module
