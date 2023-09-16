@@ -1,4 +1,4 @@
-﻿Friend Module InPlayView
+﻿Friend Module ContinueGameView
     Private ReadOnly commandTable As IReadOnlyDictionary(Of String, Func(Of IWorldModel, Boolean)) =
         New Dictionary(Of String, Func(Of IWorldModel, Boolean)) From
         {

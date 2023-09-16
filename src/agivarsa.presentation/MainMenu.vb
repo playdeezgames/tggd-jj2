@@ -3,7 +3,7 @@
         New Dictionary(Of String, Func(Of IWorldModel, Boolean)) From
         {
             {AbandonGameText, AddressOf ConfirmAbandonView.Run},
-            {ContinueGameText, AddressOf InPlayView.Run},
+            {ContinueGameText, AddressOf ContinueGameView.Run},
             {EmbarkText, AddressOf EmbarkView.Run},
             {LoadGameText, AddressOf LoadGameView.Run},
             {QuitText, AddressOf ConfirmQuitView.Run},
