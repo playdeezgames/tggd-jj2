@@ -24,4 +24,10 @@
             SetStatistic(LocationIdStatistic, value.Id)
         End Set
     End Property
+
+    Public ReadOnly Property Id As Integer Implements ICharacter.Id
+        Get
+            Return CharacterId
+        End Get
+    End Property
 End Class
