@@ -1,7 +1,4 @@
 ﻿Friend Module InPlayView
-    Friend Const MainMenuText As String = "Main Menu"
-    Private Const NowWhatPrompt As String = "[olive]Now What?[/]"
-
     Friend Sub Run(model As IWorldModel)
         Dim done As Boolean = False
         While Not done
