@@ -17,12 +17,12 @@
             (LoadGameText, Function(m) Not m.IsInPlay),
             (QuitText, Function(m) Not m.IsInPlay)
         }
-    Friend Sub Run()
-        Dim model As IWorldModel = New WorldModel
+    Friend Function Run(model As IWorldModel)
         Dim command As String
         Do
             AnsiConsole.Clear()
             command = PromptUser(MainMenuTitle, model, promptConditions)
         Loop Until commandTable(command)(model)
-    End Sub
+        Return True
+    End Function
 End Module

@@ -9,6 +9,6 @@ Public Module Runner
         AnsiConsole.Write(figlet)
         AnsiConsole.WriteLine(GameSubtitle)
         OkPrompt()
-        MainMenu.Run()
+        MainMenu.Run(New WorldModel)
     End Sub
 End Module

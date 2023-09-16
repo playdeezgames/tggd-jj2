@@ -1,16 +1,21 @@
 ﻿Friend Module InPlayView
+    Private ReadOnly commandTable As IReadOnlyDictionary(Of String, Func(Of IWorldModel, Boolean)) =
+        New Dictionary(Of String, Func(Of IWorldModel, Boolean)) From
+        {
+            {MainMenuText, Function(m) True}
+        }
+    Private ReadOnly promptConditions As IReadOnlyList(Of (text As String, condition As Func(Of IWorldModel, Boolean))) =
+        New List(Of (text As String, condition As Func(Of IWorldModel, Boolean))) From
+        {
+            (MainMenuText, Function(m) True)
+        }
     Friend Function Run(model As IWorldModel) As Boolean
-        Dim done As Boolean = False
-        While Not done
+        Dim command As String
+        Do
             AnsiConsole.Clear()
             AnsiConsole.MarkupLine("Yer playing the game!")
-            Dim prompt As New SelectionPrompt(Of String) With {.Title = NowWhatPrompt}
-            prompt.AddChoice(MainMenuText)
-            Select Case AnsiConsole.Prompt(prompt)
-                Case MainMenuText
-                    done = True
-            End Select
-        End While
+            command = PromptUser(NowWhatPrompt, model, promptConditions)
+        Loop Until commandTable(command)(model)
         Return False
     End Function
 End Module
