@@ -25,7 +25,7 @@
                 Case EmbarkText
                     EmbarkView.Run(model)
                 Case QuitText
-                    done = ConfirmQuitView.Run()
+                    done = ConfirmQuitView.Run(model)
             End Select
         End While
     End Sub
