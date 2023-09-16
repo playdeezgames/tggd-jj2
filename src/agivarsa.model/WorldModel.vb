@@ -10,6 +10,12 @@ Public Class WorldModel
         End Get
     End Property
 
+    Public ReadOnly Property Avatar As IAvatarModel Implements IWorldModel.Avatar
+        Get
+            Return New AvatarModel(New World(worldData))
+        End Get
+    End Property
+
     Public Sub Start() Implements IWorldModel.Start
         worldData = New WorldData
         InitializeWorld(New World(worldData))

@@ -13,7 +13,8 @@
         Dim command As String
         Do
             AnsiConsole.Clear()
-            AnsiConsole.MarkupLine("Yer playing the game!")
+            AnsiConsole.MarkupLine($"Character: {model.Avatar.CharacterName}")
+            AnsiConsole.MarkupLine($"Location: {model.Avatar.LocationName}")
             command = PromptUser(NowWhatPrompt, model, promptConditions)
         Loop Until commandTable(command)(model)
         Return False
