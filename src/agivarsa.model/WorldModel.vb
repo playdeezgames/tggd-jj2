@@ -18,6 +18,10 @@ Public Class WorldModel
     Private Sub InitializeWorld(world As World)
         Dim location = world.CreateLocation()
         location.Name = "Start"
+        Dim character = world.CreateCharacter()
+        character.Name = "Tagon"
+        character.Location = location
+        world.Avatar = character
     End Sub
 
     Public Sub Abandon() Implements IWorldModel.Abandon

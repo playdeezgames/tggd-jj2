@@ -2,7 +2,10 @@
     Inherits WorldDataClient
     Protected ReadOnly LocationId As Integer
     Public Sub New(data As WorldData, locationId As Integer)
-        MyBase.New(data, data.Locations(locationId).Traits)
+        MyBase.New(
+            data,
+            data.Locations(locationId).Traits,
+            data.Locations(locationId).Statistics)
         Me.LocationId = locationId
     End Sub
     Protected ReadOnly Property LocationData As LocationData

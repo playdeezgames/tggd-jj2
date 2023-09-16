@@ -1,16 +1,21 @@
 Public Class World
     Inherits WorldDataClient
     Implements IWorld
+
+
     Public Sub New(data As WorldData)
-        MyBase.New(data, data.Traits)
+        MyBase.New(
+            data,
+            data.Traits,
+            data.Statistics)
     End Sub
 
     Public Property Avatar As ICharacter Implements IWorld.Avatar
         Get
-            Throw New NotImplementedException()
+            Return New Character(WorldData, GetStatistic(AvatarCharacterIdStatistic))
         End Get
         Set(value As ICharacter)
-            Throw New NotImplementedException()
+            SetStatistic(AvatarCharacterIdStatistic, value.Id)
         End Set
     End Property
 
@@ -21,6 +26,8 @@ Public Class World
     End Function
 
     Public Function CreateCharacter() As ICharacter Implements IWorld.CreateCharacter
-        Throw New NotImplementedException()
+        Dim characterId = WorldData.Characters.Count
+        WorldData.Characters.Add(New CharacterData)
+        Return New Character(WorldData, characterId)
     End Function
 End Class
