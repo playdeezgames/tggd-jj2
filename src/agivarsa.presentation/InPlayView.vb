@@ -1,5 +1,5 @@
 ﻿Friend Module InPlayView
-    Friend Sub Run(model As IWorldModel)
+    Friend Function Run(model As IWorldModel) As Boolean
         Dim done As Boolean = False
         While Not done
             AnsiConsole.Clear()
@@ -11,5 +11,6 @@
                     done = True
             End Select
         End While
-    End Sub
+        Return False
+    End Function
 End Module

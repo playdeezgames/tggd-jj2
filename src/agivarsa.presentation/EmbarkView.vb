@@ -1,6 +1,7 @@
 ﻿Friend Module EmbarkView
-    Friend Sub Run(model As IWorldModel)
+    Friend Function Run(model As IWorldModel) As Boolean
         model.Start()
         InPlayView.Run(model)
-    End Sub
+        Return False
+    End Function
 End Module

@@ -1,7 +1,8 @@
 ﻿Friend Module ConfirmAbandonView
-    Friend Sub Run(model As IWorldModel)
+    Friend Function Run(model As IWorldModel) As Boolean
         If Confirm(ConfirmAbandonGamePrompt) Then
             model.Abandon()
         End If
-    End Sub
+        Return False
+    End Function
 End Module

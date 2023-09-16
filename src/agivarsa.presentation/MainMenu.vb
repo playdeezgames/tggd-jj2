@@ -19,11 +19,11 @@
             End If
             Select Case AnsiConsole.Prompt(prompt)
                 Case ContinueGameText
-                    InPlayView.Run(model)
+                    done = InPlayView.Run(model)
                 Case AbandonGameText
-                    ConfirmAbandonView.Run(model)
+                    done = ConfirmAbandonView.Run(model)
                 Case EmbarkText
-                    EmbarkView.Run(model)
+                    done = EmbarkView.Run(model)
                 Case QuitText
                     done = ConfirmQuitView.Run(model)
             End Select
