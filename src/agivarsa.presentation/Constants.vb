@@ -15,4 +15,8 @@
     Friend Const NowWhatPrompt As String = "[olive]Now What?[/]"
     Friend Const SaveGameText As String = "Save Game"
     Friend Const LoadGameText As String = "Load Game"
+    Friend Const FilenamePrompt As String = "[blue]Filename:[/]"
+    Friend Const GameLoadedMessage As String = "[green]Game Loaded![/]"
+    Friend Const FailedLoadMessage As String = "[red]Game Load Failed![/]"
+    Friend Const CancelLoadMessage As String = "Canceled Load."
 End Module

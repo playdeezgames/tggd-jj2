@@ -1,6 +1,7 @@
 Public Module Runner
 
     Public Sub Run()
+        Console.Title = GameTitle
         Dim figlet As New FigletText(GameTitle) With
             {
                 .Color = Color.Aqua,

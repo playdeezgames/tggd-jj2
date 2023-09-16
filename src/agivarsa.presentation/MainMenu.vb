@@ -2,10 +2,12 @@
     Private ReadOnly commandTable As IReadOnlyDictionary(Of String, Func(Of IWorldModel, Boolean)) =
         New Dictionary(Of String, Func(Of IWorldModel, Boolean)) From
         {
-            {ContinueGameText, AddressOf InPlayView.Run},
             {AbandonGameText, AddressOf ConfirmAbandonView.Run},
+            {ContinueGameText, AddressOf InPlayView.Run},
+            {EmbarkText, AddressOf EmbarkView.Run},
+            {LoadGameText, AddressOf LoadGameView.Run},
             {QuitText, AddressOf ConfirmQuitView.Run},
-            {EmbarkText, AddressOf EmbarkView.Run}
+            {SaveGameText, AddressOf SaveGameView.Run}
         }
     Private ReadOnly promptConditions As IReadOnlyList(Of (text As String, condition As Func(Of IWorldModel, Boolean))) =
         New List(Of (text As String, condition As Func(Of IWorldModel, Boolean))) From

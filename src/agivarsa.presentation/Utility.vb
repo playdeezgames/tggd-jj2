@@ -9,7 +9,6 @@
         prompt.AddChoices(Constants.NoText, Constants.YesText)
         Return AnsiConsole.Prompt(prompt) = YesText
     End Function
-
     Friend Function PromptUser(title As String, model As IWorldModel, promptConditions As IReadOnlyList(Of (text As String, condition As Func(Of IWorldModel, Boolean)))) As String
         Dim command As String
         Dim prompt As New SelectionPrompt(Of String) With
@@ -24,4 +23,10 @@
         command = AnsiConsole.Prompt(prompt)
         Return command
     End Function
+    Friend Sub MessageBox(ParamArray lines() As String)
+        For Each line In lines
+            AnsiConsole.MarkupLine(line)
+        Next
+        OkPrompt()
+    End Sub
 End Module
