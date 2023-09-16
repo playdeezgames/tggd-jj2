@@ -13,4 +13,6 @@
     Friend Const ContinueGameText As String = "Continue Game"
     Friend Const MainMenuText As String = "Main Menu"
     Friend Const NowWhatPrompt As String = "[olive]Now What?[/]"
+    Friend Const SaveGameText As String = "Save Game"
+    Friend Const LoadGameText As String = "Load Game"
 End Module

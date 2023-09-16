@@ -10,22 +10,22 @@
                 }
             If model.IsInPlay Then
                 prompt.AddChoice(ContinueGameText)
+                prompt.AddChoice(SaveGameText)
                 prompt.AddChoice(AbandonGameText)
             Else
                 prompt.AddChoice(EmbarkText)
+                prompt.AddChoice(LoadGameText)
                 prompt.AddChoice(QuitText)
             End If
             Select Case AnsiConsole.Prompt(prompt)
                 Case ContinueGameText
                     InPlayView.Run(model)
                 Case AbandonGameText
-                    If Confirm(ConfirmAbandonGamePrompt) Then
-                        model.Abandon()
-                    End If
+                    ConfirmAbandonView.Run(model)
                 Case EmbarkText
                     EmbarkView.Run(model)
                 Case QuitText
-                    done = Confirm(ConfirmQuitPrompt)
+                    done = ConfirmQuitView.Run()
             End Select
         End While
     End Sub
