@@ -12,6 +12,12 @@ Public Class WorldModel
 
     Public Sub Start() Implements IWorldModel.Start
         worldData = New WorldData
+        InitializeWorld(New World(worldData))
+    End Sub
+
+    Private Sub InitializeWorld(world As World)
+        Dim location = world.CreateLocation()
+        location.Name = "Start"
     End Sub
 
     Public Sub Abandon() Implements IWorldModel.Abandon
