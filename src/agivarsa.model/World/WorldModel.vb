@@ -12,7 +12,7 @@ Public Class WorldModel
 
     Public ReadOnly Property Avatar As IAvatarModel Implements IWorldModel.Avatar
         Get
-            Return New AvatarModel(New World(worldData))
+            Return If(IsInPlay, New AvatarModel(New World(worldData)), Nothing)
         End Get
     End Property
 
