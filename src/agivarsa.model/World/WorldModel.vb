@@ -34,7 +34,7 @@ Public Class WorldModel
 
         Dim routeFromEnd = endLocation.CreateRoute()
         routeFromEnd.Destination = startLocation
-        routeFromStart.Name = "south"
+        routeFromEnd.Name = "south"
 
         Dim character = world.CreateCharacter()
         character.Name = "Tagon"

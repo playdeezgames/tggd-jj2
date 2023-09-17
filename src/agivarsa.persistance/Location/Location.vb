@@ -1,4 +1,6 @@
-﻿Friend Class Location
+﻿Imports System.Diagnostics.CodeAnalysis
+
+Friend Class Location
     Inherits LocationDataClient
     Implements ILocation
     Public Sub New(worldData As WorldData, locationId As Integer)
@@ -17,6 +19,20 @@
     Public ReadOnly Property Id As Integer Implements ILocation.Id
         Get
             Return LocationId
+        End Get
+    End Property
+
+    Public ReadOnly Property HasRoutes As Boolean Implements ILocation.HasRoutes
+        Get
+            Return LocationData.Routes.Any
+        End Get
+    End Property
+
+    Public ReadOnly Property Routes As IEnumerable(Of IRoute) Implements ILocation.Routes
+        Get
+            Return Enumerable.
+                Range(0, LocationData.Routes.Count).
+                Select(Function(x) New Route(WorldData, LocationId, x))
         End Get
     End Property
 

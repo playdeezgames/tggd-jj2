@@ -4,4 +4,6 @@
     Sub AddCharacter(character As ICharacter)
     Sub RemoveCharacter(character As ICharacter)
     Function CreateRoute() As IRoute
+    ReadOnly Property HasRoutes As Boolean
+    ReadOnly Property Routes As IEnumerable(Of IRoute)
 End Interface
