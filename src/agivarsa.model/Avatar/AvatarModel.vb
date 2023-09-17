@@ -27,4 +27,9 @@
             Return world.Avatar.Location.Routes.Select(Function(x) x.Name)
         End Get
     End Property
+
+    Public Sub Move(routeName As String) Implements IAvatarModel.Move
+        Dim route = world.Avatar.Location.Routes.Single(Function(x) x.Name = routeName)
+        world.Avatar.Location = route.Destination
+    End Sub
 End Class

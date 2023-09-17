@@ -23,4 +23,6 @@
     Friend Const GameSavedMessage As String = "[green]Game Saved![/]"
     Friend Const FailedSaveMessage As String = "[red]Game Save Failed![/]"
     Friend Const CancelSaveMessage As String = "Canceled Save."
+    Friend Const NeverMindText As String = "Never Mind"
+    Friend Const MoveWhichWayPrompt As String = "[olive]Move Which Way?[/]"
 End Module
