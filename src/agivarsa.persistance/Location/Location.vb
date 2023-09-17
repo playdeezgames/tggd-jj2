@@ -27,4 +27,10 @@
     Public Sub RemoveCharacter(character As ICharacter) Implements ILocation.RemoveCharacter
         LocationData.CharacterIds.Remove(character.Id)
     End Sub
+
+    Public Function CreateRoute() As IRoute Implements ILocation.CreateRoute
+        Dim routeId = LocationData.Routes.Count
+        LocationData.Routes.Add(New RouteData)
+        Return New Route(WorldData, LocationId, routeId)
+    End Function
 End Class
