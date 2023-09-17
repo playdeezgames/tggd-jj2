@@ -30,8 +30,9 @@ Friend Class Location
 
     Public ReadOnly Property Routes As IEnumerable(Of IRoute) Implements ILocation.Routes
         Get
-            Return Enumerable.
-                Range(0, LocationData.Routes.Count).
+            Return LocationData.
+                Routes.
+                Keys.
                 Select(Function(x) New Route(WorldData, LocationId, x))
         End Get
     End Property
@@ -45,11 +46,9 @@ Friend Class Location
     End Sub
 
     Public Function CreateRoute(name As String, destination As ILocation) As IRoute Implements ILocation.CreateRoute
-        Dim routeId = LocationData.Routes.Count
-        LocationData.Routes.Add(New RouteData)
-        Dim result = New Route(WorldData, LocationId, routeId) With
+        LocationData.Routes(name) = New RouteData
+        Dim result = New Route(WorldData, LocationId, name) With
             {
-                .Name = name,
                 .Destination = destination
             }
         Return result

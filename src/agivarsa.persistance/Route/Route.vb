@@ -2,8 +2,8 @@
     Inherits RouteDataClient
     Implements IRoute
 
-    Public Sub New(data As WorldData, locationId As Integer, routeId As Integer)
-        MyBase.New(data, locationId, routeId)
+    Public Sub New(data As WorldData, locationId As Integer, routeName As String)
+        MyBase.New(data, locationId, routeName)
     End Sub
 
     Public Property Destination As ILocation Implements IRoute.Destination
@@ -22,15 +22,9 @@
         End Set
     End Property
 
-    Public Property Name As String Implements IRoute.Name
+    Public ReadOnly Property Name As String Implements IRoute.Name
         Get
-            If HasTrait(NameTrait) Then
-                Return GetTrait(NameTrait)
-            End If
-            Return Nothing
+            Return RouteName
         End Get
-        Set(value As String)
-            SetTrait(NameTrait, value)
-        End Set
     End Property
 End Class

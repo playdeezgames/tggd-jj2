@@ -1,4 +1,4 @@
 ﻿Public Interface IRoute
     Property Destination As ILocation
-    Property Name As String
+    ReadOnly Property Name As String
 End Interface
