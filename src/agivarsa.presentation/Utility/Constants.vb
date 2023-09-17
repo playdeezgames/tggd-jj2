@@ -12,6 +12,7 @@
     Friend Const ConfirmAbandonGamePrompt As String = "[red]Are you sure you want to abandon the game?[/]"
     Friend Const ContinueGameText As String = "Continue Game"
     Friend Const MainMenuText As String = "Main Menu"
+    Friend Const MoveText = "Move"
     Friend Const NowWhatPrompt As String = "[olive]Now What?[/]"
     Friend Const SaveGameText As String = "Save Game"
     Friend Const LoadGameText As String = "Load Game"

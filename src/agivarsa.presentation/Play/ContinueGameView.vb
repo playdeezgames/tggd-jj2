@@ -2,11 +2,13 @@
     Private ReadOnly commandTable As IReadOnlyDictionary(Of String, Func(Of IWorldModel, Boolean)) =
         New Dictionary(Of String, Func(Of IWorldModel, Boolean)) From
         {
-            {MainMenuText, Function(m) True}
+            {MoveText, AddressOf MoveView.Run},
+            {MainMenuText, AddressOf GameMenuAction.Run}
         }
     Private ReadOnly promptConditions As IReadOnlyList(Of (text As String, condition As Func(Of IWorldModel, Boolean))) =
         New List(Of (text As String, condition As Func(Of IWorldModel, Boolean))) From
         {
+            (MoveText, Function(m) m.Avatar.HasRoutes),
             (MainMenuText, Function(m) True)
         }
     Friend Function Run(model As IWorldModel) As Boolean
