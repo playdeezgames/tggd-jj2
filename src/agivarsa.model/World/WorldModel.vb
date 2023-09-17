@@ -24,15 +24,22 @@ Public Class WorldModel
     Private Sub InitializeWorld(world As World)
         Dim startLocation = world.CreateLocation()
         startLocation.Name = "Start"
+
         Dim endLocation = world.CreateLocation()
         endLocation.Name = "End"
+
         Dim routeFromStart = startLocation.CreateRoute()
         routeFromStart.Destination = endLocation
+        routeFromStart.Name = "north"
+
         Dim routeFromEnd = endLocation.CreateRoute()
         routeFromEnd.Destination = startLocation
+        routeFromStart.Name = "south"
+
         Dim character = world.CreateCharacter()
         character.Name = "Tagon"
         character.Location = startLocation
+
         world.Avatar = character
     End Sub
 

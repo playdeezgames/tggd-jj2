@@ -21,4 +21,16 @@
             SetStatistic(DestinationLocationIdStatistic, value.Id)
         End Set
     End Property
+
+    Public Property Name As String Implements IRoute.Name
+        Get
+            If HasTrait(NameTrait) Then
+                Return GetTrait(NameTrait)
+            End If
+            Return Nothing
+        End Get
+        Set(value As String)
+            SetTrait(NameTrait, value)
+        End Set
+    End Property
 End Class
