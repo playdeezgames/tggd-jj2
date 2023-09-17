@@ -18,10 +18,19 @@
 
     Public Property Location As ILocation Implements ICharacter.Location
         Get
-            Return New Location(WorldData, GetStatistic(LocationIdStatistic))
+            If HasStatistic(LocationIdStatistic) Then
+                Return New Location(WorldData, GetStatistic(LocationIdStatistic))
+            End If
+            Return Nothing
         End Get
         Set(value As ILocation)
+            If Location IsNot Nothing Then
+                Location.RemoveCharacter(Me)
+            End If
             SetStatistic(LocationIdStatistic, value.Id)
+            If Location IsNot Nothing Then
+                Location.AddCharacter(Me)
+            End If
         End Set
     End Property
 

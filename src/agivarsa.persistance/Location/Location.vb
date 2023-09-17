@@ -1,8 +1,6 @@
 ﻿Friend Class Location
     Inherits LocationDataClient
     Implements ILocation
-
-
     Public Sub New(worldData As WorldData, locationId As Integer)
         MyBase.New(worldData, locationId)
     End Sub
@@ -21,4 +19,12 @@
             Return LocationId
         End Get
     End Property
+
+    Public Sub AddCharacter(character As ICharacter) Implements ILocation.AddCharacter
+        LocationData.CharacterIds.Add(character.Id)
+    End Sub
+
+    Public Sub RemoveCharacter(character As ICharacter) Implements ILocation.RemoveCharacter
+        LocationData.CharacterIds.Remove(character.Id)
+    End Sub
 End Class
