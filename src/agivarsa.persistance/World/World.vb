@@ -19,15 +19,23 @@ Public Class World
         End Set
     End Property
 
-    Public Function CreateLocation() As ILocation Implements IWorld.CreateLocation
+    Public Function CreateLocation(name As String) As ILocation Implements IWorld.CreateLocation
         Dim locationId = WorldData.Locations.Count
         WorldData.Locations.Add(New LocationData)
-        Return New Location(WorldData, locationId)
+        Dim result = New Location(WorldData, locationId) With {
+            .Name = name
+        }
+        Return result
     End Function
 
-    Public Function CreateCharacter() As ICharacter Implements IWorld.CreateCharacter
+    Public Function CreateCharacter(name As String, location As ILocation) As ICharacter Implements IWorld.CreateCharacter
         Dim characterId = WorldData.Characters.Count
         WorldData.Characters.Add(New CharacterData)
-        Return New Character(WorldData, characterId)
+        Dim result = New Character(WorldData, characterId) With
+            {
+                .Name = name,
+                .Location = location
+            }
+        Return result
     End Function
 End Class

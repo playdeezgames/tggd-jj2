@@ -1,6 +1,6 @@
 ﻿Public Interface IWorld
     Inherits IHolder
-    Function CreateLocation() As ILocation
-    Function CreateCharacter() As ICharacter
+    Function CreateLocation(name As String) As ILocation
+    Function CreateCharacter(name As String, location As ILocation) As ICharacter
     Property Avatar As ICharacter
 End Interface

@@ -44,9 +44,14 @@ Friend Class Location
         LocationData.CharacterIds.Remove(character.Id)
     End Sub
 
-    Public Function CreateRoute() As IRoute Implements ILocation.CreateRoute
+    Public Function CreateRoute(name As String, destination As ILocation) As IRoute Implements ILocation.CreateRoute
         Dim routeId = LocationData.Routes.Count
         LocationData.Routes.Add(New RouteData)
-        Return New Route(WorldData, LocationId, routeId)
+        Dim result = New Route(WorldData, LocationId, routeId) With
+            {
+                .Name = name,
+                .Destination = destination
+            }
+        Return result
     End Function
 End Class
