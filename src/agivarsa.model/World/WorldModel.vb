@@ -39,6 +39,9 @@ Public Class WorldModel
         For Each column In Enumerable.Range(0, WorldColumns)
             For Each row In Enumerable.Range(0, WorldRows)
                 locations(column, row) = world.CreateLocation($"({column},{row})")
+                locations(column, row).SetTag("Overworld")
+                locations(column, row).SetStatistic("Column", column)
+                locations(column, row).SetStatistic("Row", row)
                 If column > 0 Then
                     locations(column, row).CreateRoute("West", locations(column - 1, row))
                     locations(column - 1, row).CreateRoute("East", locations(column, row))

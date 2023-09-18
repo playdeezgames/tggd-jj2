@@ -1,4 +1,5 @@
 ﻿Public Interface ILocation
+    Inherits IHolder
     Property Name As String
     ReadOnly Property Id As Integer
     Sub AddCharacter(character As ICharacter)

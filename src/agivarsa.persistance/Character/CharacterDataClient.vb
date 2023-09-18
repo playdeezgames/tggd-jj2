@@ -5,7 +5,8 @@
         MyBase.New(
             data,
             data.Characters(characterId).Traits,
-            data.Characters(characterId).Statistics)
+            data.Characters(characterId).Statistics,
+            data.Characters(characterId).Tags)
         Me.CharacterId = characterId
     End Sub
     Protected ReadOnly Property CharacterData As CharacterData

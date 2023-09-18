@@ -7,7 +7,8 @@ Public Class World
         MyBase.New(
             data,
             data.Traits,
-            data.Statistics)
+            data.Statistics,
+            data.Tags)
     End Sub
 
     Public Property Avatar As ICharacter Implements IWorld.Avatar

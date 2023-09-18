@@ -3,10 +3,16 @@
     Private ReadOnly data As WorldData
     Private ReadOnly traits As Dictionary(Of String, String)
     Private ReadOnly statistics As Dictionary(Of String, Integer)
-    Sub New(data As WorldData, traits As Dictionary(Of String, String), statistics As Dictionary(Of String, Integer))
+    Private ReadOnly tags As HashSet(Of String)
+    Sub New(
+           data As WorldData,
+           traits As Dictionary(Of String, String),
+           statistics As Dictionary(Of String, Integer),
+           tags As HashSet(Of String))
         Me.data = data
         Me.traits = traits
         Me.statistics = statistics
+        Me.tags = tags
     End Sub
     Protected ReadOnly Property WorldData As WorldData
         Get
@@ -30,6 +36,14 @@
         traits.Remove(traitName)
     End Sub
 
+    Public Sub SetTag(tagName As String) Implements ITagHolder.SetTag
+        tags.Add(tagName)
+    End Sub
+
+    Public Sub RemoveTag(tagName As String) Implements ITagHolder.RemoveTag
+        tags.Remove(tagName)
+    End Sub
+
     Public Function GetTrait(traitName As String) As String Implements ITraitHolder.GetTrait
         Return traits(traitName)
     End Function
@@ -44,5 +58,9 @@
 
     Public Function HasTrait(traitName As String) As Boolean Implements ITraitHolder.HasTrait
         Return traits.ContainsKey(traitName)
+    End Function
+
+    Public Function HasTag(tagName As String) As Boolean Implements ITagHolder.HasTag
+        Return tags.Contains(tagName)
     End Function
 End Class
