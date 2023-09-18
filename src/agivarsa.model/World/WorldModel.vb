@@ -2,6 +2,7 @@ Imports System.Text.Json
 
 Public Class WorldModel
     Implements IWorldModel
+
     Private worldData As WorldData
 
     Public ReadOnly Property IsInPlay As Boolean Implements IWorldModel.IsInPlay
@@ -39,16 +40,16 @@ Public Class WorldModel
         For Each column In Enumerable.Range(0, WorldColumns)
             For Each row In Enumerable.Range(0, WorldRows)
                 locations(column, row) = world.CreateLocation($"({column},{row})")
-                locations(column, row).SetTag("Overworld")
-                locations(column, row).SetStatistic("Column", column)
-                locations(column, row).SetStatistic("Row", row)
+                locations(column, row).SetTag(OverworldTag)
+                locations(column, row).SetStatistic(ColumnStatistic, column)
+                locations(column, row).SetStatistic(RowStatistic, row)
                 If column > 0 Then
-                    locations(column, row).CreateRoute("West", locations(column - 1, row))
-                    locations(column - 1, row).CreateRoute("East", locations(column, row))
+                    locations(column, row).CreateRoute(WestDirection, locations(column - 1, row))
+                    locations(column - 1, row).CreateRoute(EastDirection, locations(column, row))
                 End If
                 If row > 0 Then
-                    locations(column, row).CreateRoute("North", locations(column, row - 1))
-                    locations(column, row - 1).CreateRoute("South", locations(column, row))
+                    locations(column, row).CreateRoute(NorthDirection, locations(column, row - 1))
+                    locations(column, row - 1).CreateRoute(SouthDirection, locations(column, row))
                 End If
             Next
         Next
