@@ -1,5 +1,6 @@
 ﻿Friend Module Constants
     Friend Const AvatarCharacterIdStatistic As String = "AvatarCharacterId"
+    Friend Const CharacterTypeTrait As String = "CharacterType"
     Friend Const DestinationLocationIdStatistic As String = "DestinationLocationId"
     Friend Const LocationIdStatistic As String = "LocationId"
     Friend Const NameTrait As String = "Name"

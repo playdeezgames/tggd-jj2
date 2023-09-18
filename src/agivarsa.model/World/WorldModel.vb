@@ -30,7 +30,7 @@ Public Class WorldModel
         hutLocation.CreateRoute("Out", overworldLocation)
         overworldLocation.CreateRoute("In", hutLocation)
 
-        world.Avatar = world.CreateCharacter("Tagon", hutLocation)
+        world.Avatar = world.CreateCharacter("Tagon", AvatarCharacterType, hutLocation)
     End Sub
 
     Private Function InitializedOverworld(world As World) As ILocation
@@ -53,6 +53,8 @@ Public Class WorldModel
                 End If
             Next
         Next
+        Dim yak = world.CreateCharacter("Yak", "Yak", locations(RNG.FromRange(0, WorldColumns - 1), RNG.FromRange(0, WorldRows - 1)))
+        yak.SetTag(CanShaveTag)
         Return locations(RNG.FromRange(0, WorldColumns - 1), RNG.FromRange(0, WorldRows - 1))
     End Function
 

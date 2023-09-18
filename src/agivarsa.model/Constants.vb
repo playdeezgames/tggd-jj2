@@ -1,4 +1,6 @@
 ﻿Friend Module Constants
+    Friend Const AvatarCharacterType As String = "Avatar"
+    Friend Const CanShaveTag As String = "CanShave"
     Friend Const ColumnStatistic As String = "Column"
     Friend Const EastDirection As String = "East"
     Friend Const NorthDirection As String = "North"

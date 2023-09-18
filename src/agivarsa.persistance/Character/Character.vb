@@ -39,4 +39,13 @@
             Return CharacterId
         End Get
     End Property
+
+    Public Property CharacterType As String Implements ICharacter.CharacterType
+        Get
+            Return GetTrait(CharacterTypeTrait)
+        End Get
+        Set(value As String)
+            SetTrait(CharacterTypeTrait, value)
+        End Set
+    End Property
 End Class

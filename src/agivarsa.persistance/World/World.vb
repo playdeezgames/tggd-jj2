@@ -29,13 +29,14 @@ Public Class World
         Return result
     End Function
 
-    Public Function CreateCharacter(name As String, location As ILocation) As ICharacter Implements IWorld.CreateCharacter
+    Public Function CreateCharacter(name As String, characterType As String, location As ILocation) As ICharacter Implements IWorld.CreateCharacter
         Dim characterId = WorldData.Characters.Count
         WorldData.Characters.Add(New CharacterData)
         Dim result = New Character(WorldData, characterId) With
             {
                 .Name = name,
-                .Location = location
+                .Location = location,
+                .CharacterType = characterType
             }
         Return result
     End Function
