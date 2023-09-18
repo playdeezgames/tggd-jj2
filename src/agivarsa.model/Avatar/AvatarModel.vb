@@ -28,6 +28,24 @@
         End Get
     End Property
 
+    Public ReadOnly Property CanInteract As Boolean Implements IAvatarModel.CanInteract
+        Get
+            Return world.Avatar.Others.Any(AddressOf CharacterExtensions.CanInteract)
+        End Get
+    End Property
+
+    Public ReadOnly Property HasOthers As Boolean Implements IAvatarModel.HasOthers
+        Get
+            Return world.Avatar.Others.Any
+        End Get
+    End Property
+
+    Public ReadOnly Property OtherCharacterNames As IEnumerable(Of String) Implements IAvatarModel.OtherCharacterNames
+        Get
+            Return world.Avatar.Others.Select(Function(x) x.Name)
+        End Get
+    End Property
+
     Public Sub Move(routeName As String) Implements IAvatarModel.Move
         Dim route = world.Avatar.Location.Routes.Single(Function(x) x.Name = routeName)
         world.Avatar.Location = route.Destination

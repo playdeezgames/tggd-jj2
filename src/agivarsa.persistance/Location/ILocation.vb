@@ -7,4 +7,5 @@
     Function CreateRoute(name As String, destination As ILocation) As IRoute
     ReadOnly Property HasRoutes As Boolean
     ReadOnly Property Routes As IEnumerable(Of IRoute)
+    ReadOnly Property Characters As IEnumerable(Of ICharacter)
 End Interface

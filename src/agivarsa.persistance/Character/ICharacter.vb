@@ -4,4 +4,5 @@
     Property Location As ILocation
     ReadOnly Property Id As Integer
     Property CharacterType As String
+    ReadOnly Property Others As IEnumerable(Of ICharacter)
 End Interface

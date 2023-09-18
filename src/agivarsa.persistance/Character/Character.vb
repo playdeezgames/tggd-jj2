@@ -48,4 +48,10 @@
             SetTrait(CharacterTypeTrait, value)
         End Set
     End Property
+
+    Public ReadOnly Property Others As IEnumerable(Of ICharacter) Implements ICharacter.Others
+        Get
+            Return Location.Characters.Where(Function(other) other.Id <> Id)
+        End Get
+    End Property
 End Class
