@@ -3,8 +3,8 @@
     Implements ICharacter
 
 
-    Public Sub New(data As WorldData, characterId As Integer)
-        MyBase.New(data, characterId)
+    Public Sub New(data As WorldData, characterName As String)
+        MyBase.New(data, characterName)
     End Sub
 
     Public Property Name As String Implements ICharacter.Name
@@ -34,7 +34,7 @@
         End Set
     End Property
 
-    Public ReadOnly Property Id As Integer Implements ICharacter.Id
+    Public ReadOnly Property Id As String Implements ICharacter.Id
         Get
             Return CharacterId
         End Get

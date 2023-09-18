@@ -1,7 +1,7 @@
 ﻿Friend MustInherit Class CharacterDataClient
     Inherits WorldDataClient
-    Protected ReadOnly CharacterId As Integer
-    Public Sub New(data As WorldData, characterId As Integer)
+    Protected ReadOnly CharacterId As String
+    Public Sub New(data As WorldData, characterId As String)
         MyBase.New(
             data,
             data.Characters(characterId).Traits,

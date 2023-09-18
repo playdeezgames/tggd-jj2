@@ -13,10 +13,10 @@ Public Class World
 
     Public Property Avatar As ICharacter Implements IWorld.Avatar
         Get
-            Return New Character(WorldData, GetStatistic(AvatarCharacterIdStatistic))
+            Return New Character(WorldData, GetTrait(AvatarCharacterIdTrait))
         End Get
         Set(value As ICharacter)
-            SetStatistic(AvatarCharacterIdStatistic, value.Id)
+            SetTrait(AvatarCharacterIdTrait, value.Id)
         End Set
     End Property
 
@@ -30,9 +30,11 @@ Public Class World
     End Function
 
     Public Function CreateCharacter(name As String, characterType As String, location As ILocation) As ICharacter Implements IWorld.CreateCharacter
-        Dim characterId = WorldData.Characters.Count
-        WorldData.Characters.Add(New CharacterData)
-        Dim result = New Character(WorldData, characterId) With
+        If WorldData.Characters.ContainsKey(name) Then
+            Throw New NotImplementedException
+        End If
+        WorldData.Characters(name) = New CharacterData
+        Dim result = New Character(WorldData, name) With
             {
                 .Name = name,
                 .Location = location,
