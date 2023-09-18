@@ -3,20 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "agivarsa", "agivarsa\agivarsa.vbproj", "{F01FAB98-0E5B-42AE-BE5F-DEB7F1641C59}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "agivarsa", "agivarsa\agivarsa.vbproj", "{F01FAB98-0E5B-42AE-BE5F-DEB7F1641C59}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_STUFF", "_STUFF", "{BC6DBDBC-1B05-453C-9BDF-EE1026AFF60A}"
 	ProjectSection(SolutionItems) = preProject
 		..\shippit.sh = ..\shippit.sh
 	EndProjectSection
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "agivarsa.presentation", "agivarsa.presentation\agivarsa.presentation.vbproj", "{CF78035A-DABD-4BB0-9F2A-AF68ECC167B8}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "agivarsa.presentation", "agivarsa.presentation\agivarsa.presentation.vbproj", "{CF78035A-DABD-4BB0-9F2A-AF68ECC167B8}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "agivarsa.model", "agivarsa.model\agivarsa.model.vbproj", "{62EBABDD-CBF5-4225-BCF1-61F5753D5028}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "agivarsa.model", "agivarsa.model\agivarsa.model.vbproj", "{62EBABDD-CBF5-4225-BCF1-61F5753D5028}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "agivarsa.persistance", "agivarsa.persistance\agivarsa.persistance.vbproj", "{8C1BC5FF-46D5-4E3D-937C-DFAD3416EFFB}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "agivarsa.persistance", "agivarsa.persistance\agivarsa.persistance.vbproj", "{8C1BC5FF-46D5-4E3D-937C-DFAD3416EFFB}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "agivarsa.data", "agivarsa.data\agivarsa.data.vbproj", "{02263FA2-166F-4E88-81F7-84EDA4E9A519}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "agivarsa.data", "agivarsa.data\agivarsa.data.vbproj", "{02263FA2-166F-4E88-81F7-84EDA4E9A519}"
+EndProject
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "SPLORR.Game", "SPLORR.Game\SPLORR.Game.vbproj", "{8F84F7E0-BC63-4647-A01B-50EB376BD4A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,6 +46,10 @@ Global
 		{02263FA2-166F-4E88-81F7-84EDA4E9A519}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02263FA2-166F-4E88-81F7-84EDA4E9A519}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02263FA2-166F-4E88-81F7-84EDA4E9A519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F84F7E0-BC63-4647-A01B-50EB376BD4A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F84F7E0-BC63-4647-A01B-50EB376BD4A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F84F7E0-BC63-4647-A01B-50EB376BD4A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F84F7E0-BC63-4647-A01B-50EB376BD4A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

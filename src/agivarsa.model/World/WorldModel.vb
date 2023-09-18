@@ -22,18 +22,35 @@ Public Class WorldModel
     End Sub
 
     Private Sub InitializeWorld(world As World)
-        Dim startLocation = world.CreateLocation("Start")
+        'overworld
+        Dim overworldLocation = InitializedOverworld(world)
 
-        Dim endLocation = world.CreateLocation("End")
+        Dim hutLocation = world.CreateLocation("Hut")
+        hutLocation.CreateRoute("Out", overworldLocation)
+        overworldLocation.CreateRoute("In", hutLocation)
 
-        Dim routeFromStart = startLocation.CreateRoute("North", endLocation)
-
-        Dim routeFromEnd = endLocation.CreateRoute("South", startLocation)
-
-        Dim character = world.CreateCharacter("Tagon", startLocation)
-
-        world.Avatar = character
+        world.Avatar = world.CreateCharacter("Tagon", hutLocation)
     End Sub
+
+    Private Function InitializedOverworld(world As World) As ILocation
+        Const WorldColumns = 7
+        Const WorldRows = 7
+        Dim locations(WorldColumns, WorldRows) As ILocation
+        For Each column In Enumerable.Range(0, WorldColumns)
+            For Each row In Enumerable.Range(0, WorldRows)
+                locations(column, row) = world.CreateLocation($"({column},{row})")
+                If column > 0 Then
+                    locations(column, row).CreateRoute("West", locations(column - 1, row))
+                    locations(column - 1, row).CreateRoute("East", locations(column, row))
+                End If
+                If row > 0 Then
+                    locations(column, row).CreateRoute("North", locations(column, row - 1))
+                    locations(column, row - 1).CreateRoute("South", locations(column, row))
+                End If
+            Next
+        Next
+        Return locations(RNG.FromRange(0, WorldColumns - 1), RNG.FromRange(0, WorldRows - 1))
+    End Function
 
     Public Sub Abandon() Implements IWorldModel.Abandon
         worldData = Nothing

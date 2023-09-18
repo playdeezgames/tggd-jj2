@@ -4,7 +4,7 @@
     <RootNamespace>agivarsa.model</RootNamespace>
     <TargetFramework>netstandard2.1</TargetFramework>
     <OptionStrict>On</OptionStrict>
-    <ImportedNamespaces>agivarsa.data=False,agivarsa.persistance=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,agivarsa.model=True</ImportedNamespaces>
+    <ImportedNamespaces>agivarsa.data=False,agivarsa.persistance=False,SPLORR.Game=False,Microsoft.VisualBasic=True,System=True,System.Collections=True,System.Collections.Generic=True,System.Diagnostics=True,System.Linq=True,System.Xml.Linq=True,System.Threading.Tasks=True,agivarsa.model=True</ImportedNamespaces>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -17,11 +17,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\agivarsa.persistance\agivarsa.persistance.vbproj" />
+    <ProjectReference Include="..\SPLORR.Game\SPLORR.Game.vbproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Import Include="agivarsa.data" />
     <Import Include="agivarsa.persistance" />
+    <Import Include="SPLORR.Game" />
   </ItemGroup>
 
   <ItemGroup>
