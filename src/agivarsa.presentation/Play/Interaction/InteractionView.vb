@@ -8,11 +8,11 @@
         Dim answer = AnsiConsole.Prompt(prompt)
         Select Case answer
             Case NeverMindText
-                model.Avatar.Others.CurrentInteractee = Nothing
-                Return False
+                'do nothing
             Case Else
                 MessageBox(target.Interact(answer))
-                Return False
         End Select
+        model.Avatar.Others.CurrentInteractee = Nothing
+        Return False
     End Function
 End Module

@@ -51,10 +51,11 @@
         End If
         character.RemoveTag(CanShaveTag)
         Dim item = world.CreateItem(YakHairName, YakHairItemType)
-        character.AddItem(item)
+        world.Avatar.AddItem(item)
         Dim result = New List(Of String) From
             {
-                    $"{world.Avatar.Name} shaves {character.Name}."
+                    $"{world.Avatar.Name} shaves {character.Name}.",
+                    $"{world.Avatar.Name} acquires {item.Name}."
             }
         character.Name = $"Shorn {character.Name}"
         Return result
