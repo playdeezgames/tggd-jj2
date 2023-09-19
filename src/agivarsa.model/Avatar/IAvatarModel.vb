@@ -2,7 +2,6 @@
     ReadOnly Property Name As String
     ReadOnly Property Location As IAvatarLocationModel
     ReadOnly Property Others As IAvatarOthersModel
-    ReadOnly Property OtherCharacterNames As IEnumerable(Of (name As String, id As String))
     ReadOnly Property InteractableOthers As IEnumerable(Of (name As String, id As String))
     ReadOnly Property CanInteract As Boolean
     Sub SetInteractionTarget(characterId As String)

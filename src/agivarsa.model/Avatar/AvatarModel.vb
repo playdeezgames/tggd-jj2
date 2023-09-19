@@ -16,13 +16,6 @@
             Return world.Avatar.Others.Any(AddressOf CharacterExtensions.CanInteract)
         End Get
     End Property
-
-    Public ReadOnly Property OtherCharacterNames As IEnumerable(Of (name As String, id As String)) Implements IAvatarModel.OtherCharacterNames
-        Get
-            Return world.Avatar.Others.Select(Function(x) (x.Name, x.Id))
-        End Get
-    End Property
-
     Public ReadOnly Property InteractableOthers As IEnumerable(Of (name As String, id As String)) Implements IAvatarModel.InteractableOthers
         Get
             Return world.
