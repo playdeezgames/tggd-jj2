@@ -17,12 +17,6 @@
         End Get
     End Property
 
-    Public ReadOnly Property HasOthers As Boolean Implements IAvatarModel.HasOthers
-        Get
-            Return world.Avatar.Others.Any
-        End Get
-    End Property
-
     Public ReadOnly Property OtherCharacterNames As IEnumerable(Of (name As String, id As String)) Implements IAvatarModel.OtherCharacterNames
         Get
             Return world.Avatar.Others.Select(Function(x) (x.Name, x.Id))
@@ -49,6 +43,12 @@
     Public ReadOnly Property Location As IAvatarLocationModel Implements IAvatarModel.Location
         Get
             Return New AvatarLocationModel(world)
+        End Get
+    End Property
+
+    Public ReadOnly Property Others As IAvatarOthersModel Implements IAvatarModel.Others
+        Get
+            Return New AvatarOthersModel(world)
         End Get
     End Property
 

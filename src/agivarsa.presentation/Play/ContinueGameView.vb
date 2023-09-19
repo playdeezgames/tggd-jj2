@@ -19,7 +19,7 @@
             AnsiConsole.Clear()
             AnsiConsole.MarkupLine($"Character: {model.Avatar.Name}")
             AnsiConsole.MarkupLine($"Location: {model.Avatar.Location.Name}")
-            If model.Avatar.HasOthers Then
+            If model.Avatar.Others.HasOthers Then
                 AnsiConsole.MarkupLine($"Others: {String.Join(", ", model.Avatar.OtherCharacterNames.Select(Function(x) x.name))}")
             End If
             If model.Avatar.Location.HasRoutes Then
