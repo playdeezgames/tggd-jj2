@@ -1,19 +1,19 @@
 ﻿Friend Module InteractMenuView
 
     Friend Function Run(model As IWorldModel) As Boolean
-        Dim interactableCharacters = model.Avatar.Others.LegacyInteractables
+        Dim interactableCharacters = model.Avatar.Others.Interactables
         Select Case interactableCharacters.Count
             Case 0
                 Return NoInteractableCharacter(model)
             Case 1
-                Return InteractWith(model, interactableCharacters.Single.id)
+                Return InteractWith(model, interactableCharacters.Single)
             Case Else
                 Return ChooseInteractable(model, interactableCharacters)
         End Select
     End Function
 
-    Private Function ChooseInteractable(model As IWorldModel, otherCharacters As IEnumerable(Of (name As String, id As String))) As Boolean
-        Dim table = otherCharacters.ToDictionary(AddressOf ObfuscateCharacter, Function(x) x.id)
+    Private Function ChooseInteractable(model As IWorldModel, otherCharacters As IEnumerable(Of IOtherModel)) As Boolean
+        Dim table = otherCharacters.ToDictionary(AddressOf ObfuscateCharacter, Function(x) x)
         Dim prompt As New SelectionPrompt(Of String) With {.Title = InteractWithPrompt}
         prompt.AddChoice(NeverMindText)
         prompt.AddChoices(table.Keys.ToArray)
@@ -26,8 +26,8 @@
         End Select
     End Function
 
-    Private Function InteractWith(model As IWorldModel, otherCharacterId As String) As Boolean
-        model.Avatar.Others.LegacySetInteractionTarget(otherCharacterId)
+    Private Function InteractWith(model As IWorldModel, otherCharacter As IOtherModel) As Boolean
+        model.Avatar.Others.LegacySetInteractionTarget(otherCharacter.Id)
         Return InteractionView.Run(model)
     End Function
 

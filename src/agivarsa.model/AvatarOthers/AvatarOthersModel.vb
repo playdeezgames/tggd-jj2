@@ -18,16 +18,6 @@
             Return world.Avatar.Others.Any
         End Get
     End Property
-    Public ReadOnly Property LegacyInteractables As IEnumerable(Of (name As String, id As String)) Implements IAvatarOthersModel.LegacyInteractables
-        Get
-            Return world.
-                Avatar.
-                Others.
-                Where(AddressOf CharacterExtensions.CanInteract).
-                Select(Function(x) (x.Name, x.Id))
-        End Get
-    End Property
-
     Public ReadOnly Property LegacyInteractionTarget As (name As String, id As String) Implements IAvatarOthersModel.LegacyInteractionTarget
         Get
             Dim id = world.Avatar.GetTrait(InteractionCharacterIdTrait)
@@ -38,6 +28,16 @@
     Public ReadOnly Property All As IEnumerable(Of IOtherModel) Implements IAvatarOthersModel.All
         Get
             Return world.Avatar.Others.Select(Function(x) New OtherModel(world, x.Id))
+        End Get
+    End Property
+
+    Public ReadOnly Property Interactables As IEnumerable(Of IOtherModel) Implements IAvatarOthersModel.Interactables
+        Get
+            Return world.
+                Avatar.
+                Others.
+                Where(AddressOf CharacterExtensions.CanInteract).
+                Select(Function(x) New OtherModel(world, x.Id))
         End Get
     End Property
 
