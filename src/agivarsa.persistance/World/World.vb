@@ -1,8 +1,6 @@
 Public Class World
     Inherits WorldDataClient
     Implements IWorld
-
-
     Public Sub New(data As WorldData)
         MyBase.New(
             data,
@@ -48,5 +46,14 @@ Public Class World
             Return New Character(WorldData, id)
         End If
         Return Nothing
+    End Function
+
+    Public Function CreateItem(name As String, itemType As String) As IItem Implements IWorld.CreateItem
+        Dim itemId = WorldData.Items.Count
+        WorldData.Items.Add(New ItemData)
+        Dim item As IItem = New Item(WorldData, itemId)
+        item.Name = name
+        item.ItemType = itemType
+        Return item
     End Function
 End Class

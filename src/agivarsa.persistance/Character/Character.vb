@@ -1,8 +1,6 @@
 ﻿Friend Class Character
     Inherits CharacterDataClient
     Implements ICharacter
-
-
     Public Sub New(data As WorldData, characterId As String)
         MyBase.New(data, characterId)
     End Sub
@@ -54,4 +52,8 @@
             Return Location.Characters.Where(Function(other) other.Id <> Id)
         End Get
     End Property
+
+    Public Sub AddItem(item As IItem) Implements ICharacter.AddItem
+        CharacterData.ItemIds.Add(item.Id)
+    End Sub
 End Class

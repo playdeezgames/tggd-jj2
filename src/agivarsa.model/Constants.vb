@@ -10,4 +10,6 @@
     Friend Const ShaveInteraction As String = "Shave"
     Friend Const SouthDirection As String = "South"
     Friend Const WestDirection As String = "West"
+    Friend Const YakHairItemType As String = "YakHair"
+    Friend Const YakHairName As String = "Yak Hair"
 End Module
