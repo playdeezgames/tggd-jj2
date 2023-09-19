@@ -7,25 +7,25 @@
         Me.world = world
     End Sub
 
-    Public ReadOnly Property CanInteract As Boolean Implements IAvatarOthersModel.CanInteract
+    Public ReadOnly Property HasInteractables As Boolean Implements IAvatarOthersModel.HasInteractables
         Get
             Return world.Avatar.Others.Any(AddressOf CharacterExtensions.CanInteract)
         End Get
     End Property
 
-    Public ReadOnly Property HasOthers As Boolean Implements IAvatarOthersModel.HasOthers
+    Public ReadOnly Property Exist As Boolean Implements IAvatarOthersModel.Exist
         Get
             Return world.Avatar.Others.Any
         End Get
     End Property
 
-    Public ReadOnly Property OtherCharacterNames As IEnumerable(Of (name As String, id As String)) Implements IAvatarOthersModel.OtherCharacterNames
+    Public ReadOnly Property All As IEnumerable(Of (name As String, id As String)) Implements IAvatarOthersModel.All
         Get
             Return world.Avatar.Others.Select(Function(x) (x.Name, x.Id))
         End Get
     End Property
 
-    Public ReadOnly Property InteractableOthers As IEnumerable(Of (name As String, id As String)) Implements IAvatarOthersModel.InteractableOthers
+    Public ReadOnly Property Interactable As IEnumerable(Of (name As String, id As String)) Implements IAvatarOthersModel.Interactable
         Get
             Return world.
                 Avatar.

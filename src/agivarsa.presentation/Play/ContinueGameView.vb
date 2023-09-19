@@ -10,7 +10,7 @@
         New List(Of (text As String, condition As Func(Of IWorldModel, Boolean))) From
         {
             (MoveText, Function(m) m.Avatar.Location.HasRoutes),
-            (InteractText, Function(m) m.Avatar.Others.CanInteract),
+            (InteractText, Function(m) m.Avatar.Others.HasInteractables),
             (MainMenuText, Function(m) True)
         }
     Friend Function Run(model As IWorldModel) As Boolean
@@ -19,8 +19,8 @@
             AnsiConsole.Clear()
             AnsiConsole.MarkupLine($"Character: {model.Avatar.Name}")
             AnsiConsole.MarkupLine($"Location: {model.Avatar.Location.Name}")
-            If model.Avatar.Others.HasOthers Then
-                AnsiConsole.MarkupLine($"Others: {String.Join(", ", model.Avatar.Others.OtherCharacterNames.Select(Function(x) x.name))}")
+            If model.Avatar.Others.Exist Then
+                AnsiConsole.MarkupLine($"Others: {String.Join(", ", model.Avatar.Others.All.Select(Function(x) x.name))}")
             End If
             If model.Avatar.Location.HasRoutes Then
                 AnsiConsole.MarkupLine($"Exits: {String.Join(", ", model.Avatar.Location.Routes)}")

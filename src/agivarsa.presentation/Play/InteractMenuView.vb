@@ -1,7 +1,7 @@
 ﻿Friend Module InteractMenuView
 
     Friend Function Run(model As IWorldModel) As Boolean
-        Dim interactableCharacters = model.Avatar.Others.InteractableOthers
+        Dim interactableCharacters = model.Avatar.Others.Interactable
         Select Case interactableCharacters.Count
             Case 0
                 Return NoInteractableCharacter(model)
