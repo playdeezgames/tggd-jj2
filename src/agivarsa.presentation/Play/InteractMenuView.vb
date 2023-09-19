@@ -27,7 +27,7 @@
     End Function
 
     Private Function InteractWith(model As IWorldModel, otherCharacterId As String) As Boolean
-        model.Avatar.SetInteractionTarget(otherCharacterId)
+        model.Avatar.Others.SetInteractionTarget(otherCharacterId)
         Return InteractionView.Run(model)
     End Function
 

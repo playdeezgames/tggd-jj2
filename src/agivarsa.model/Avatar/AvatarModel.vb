@@ -10,13 +10,6 @@
             Return world.Avatar.Name
         End Get
     End Property
-    Public ReadOnly Property InteractionTarget As (name As String, id As String) Implements IAvatarModel.InteractionTarget
-        Get
-            Dim id = world.Avatar.GetTrait(InteractionCharacterIdTrait)
-            Return (world.GetCharacter(id).Name, id)
-        End Get
-    End Property
-
     Public ReadOnly Property Location As IAvatarLocationModel Implements IAvatarModel.Location
         Get
             Return New AvatarLocationModel(world)
@@ -28,8 +21,4 @@
             Return New AvatarOthersModel(world)
         End Get
     End Property
-
-    Public Sub SetInteractionTarget(characterId As String) Implements IAvatarModel.SetInteractionTarget
-        world.Avatar.SetTrait(InteractionCharacterIdTrait, characterId)
-    End Sub
 End Class
