@@ -10,7 +10,7 @@
         New List(Of (text As String, condition As Func(Of IWorldModel, Boolean))) From
         {
             (MoveText, Function(m) m.Avatar.Location.HasRoutes),
-            (InteractText, Function(m) m.Avatar.Others.HasInteractables),
+            (InteractText, Function(m) m.Avatar.Others.HasInteractees),
             (MainMenuText, Function(m) True)
         }
     Friend Function Run(model As IWorldModel) As Boolean

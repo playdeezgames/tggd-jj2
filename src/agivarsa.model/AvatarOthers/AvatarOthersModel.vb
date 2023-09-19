@@ -7,7 +7,7 @@
         Me.world = world
     End Sub
 
-    Public ReadOnly Property HasInteractables As Boolean Implements IAvatarOthersModel.HasInteractables
+    Public ReadOnly Property HasInteractees As Boolean Implements IAvatarOthersModel.HasInteractees
         Get
             Return world.Avatar.Others.Any(AddressOf CharacterExtensions.CanInteract)
         End Get
@@ -24,7 +24,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property Interactables As IEnumerable(Of IOtherModel) Implements IAvatarOthersModel.Interactables
+    Public ReadOnly Property Interactees As IEnumerable(Of IOtherModel) Implements IAvatarOthersModel.Interactees
         Get
             Return world.
                 Avatar.
@@ -34,7 +34,7 @@
         End Get
     End Property
 
-    Public Property InteractionTarget As IOtherModel Implements IAvatarOthersModel.InteractionTarget
+    Public Property CurrentInteractee As IOtherModel Implements IAvatarOthersModel.CurrentInteractee
         Get
             If world.Avatar.HasTrait(InteractionCharacterIdTrait) Then
                 Return New OtherModel(world, world.Avatar.GetTrait(InteractionCharacterIdTrait))
