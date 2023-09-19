@@ -1,6 +1,6 @@
 ﻿Friend Module InteractionView
     Friend Function Run(model As IWorldModel) As Boolean
-        Dim target = model.Avatar.Others.LegacyInteractionTarget
+        Dim target = model.Avatar.Others.InteractionTarget
         Dim prompt As New SelectionPrompt(Of String) With {.Title = $"[olive]Interact with {target.name}[/]"}
         prompt.AddChoice(NeverMindText)
         Dim answer = AnsiConsole.Prompt(prompt)
