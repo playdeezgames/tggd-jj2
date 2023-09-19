@@ -1,7 +1,6 @@
 ﻿Public Interface IAvatarModel
     ReadOnly Property Name As String
     ReadOnly Property Location As IAvatarLocationModel
-    ReadOnly Property HasRoutes As Boolean
     ReadOnly Property RouteNames As IEnumerable(Of String)
     Sub Move(routeName As String)
 

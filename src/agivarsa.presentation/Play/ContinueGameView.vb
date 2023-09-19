@@ -9,7 +9,7 @@
     Private ReadOnly promptConditions As IReadOnlyList(Of (text As String, condition As Func(Of IWorldModel, Boolean))) =
         New List(Of (text As String, condition As Func(Of IWorldModel, Boolean))) From
         {
-            (MoveText, Function(m) m.Avatar.HasRoutes),
+            (MoveText, Function(m) m.Avatar.Location.HasRoutes),
             (InteractText, Function(m) m.Avatar.CanInteract),
             (MainMenuText, Function(m) True)
         }
@@ -22,7 +22,7 @@
             If model.Avatar.HasOthers Then
                 AnsiConsole.MarkupLine($"Others: {String.Join(", ", model.Avatar.OtherCharacterNames.Select(Function(x) x.name))}")
             End If
-            If model.Avatar.HasRoutes Then
+            If model.Avatar.Location.HasRoutes Then
                 AnsiConsole.MarkupLine($"Exits: {String.Join(", ", model.Avatar.RouteNames)}")
             End If
             command = PromptUser(NowWhatPrompt, model, promptConditions)
