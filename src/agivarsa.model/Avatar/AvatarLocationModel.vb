@@ -7,7 +7,7 @@
         Me.world = world
     End Sub
 
-    Public ReadOnly Property LocationName As String Implements IAvatarLocationModel.LocationName
+    Public ReadOnly Property Name As String Implements IAvatarLocationModel.Name
         Get
             Return world.Avatar.Location.Name
         End Get

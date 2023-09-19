@@ -17,8 +17,8 @@
         Dim command As String
         Do
             AnsiConsole.Clear()
-            AnsiConsole.MarkupLine($"Character: {model.Avatar.CharacterName}")
-            AnsiConsole.MarkupLine($"Location: {model.Avatar.LocationName}")
+            AnsiConsole.MarkupLine($"Character: {model.Avatar.Name}")
+            AnsiConsole.MarkupLine($"Location: {model.Avatar.Location.Name}")
             If model.Avatar.HasOthers Then
                 AnsiConsole.MarkupLine($"Others: {String.Join(", ", model.Avatar.OtherCharacterNames.Select(Function(x) x.name))}")
             End If
