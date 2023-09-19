@@ -64,6 +64,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property Location As IAvatarLocationModel Implements IAvatarModel.Location
+        Get
+            Return New AvatarLocationModel(world)
+        End Get
+    End Property
+
     Public Sub Move(routeName As String) Implements IAvatarModel.Move
         Dim route = world.Avatar.Location.Routes.Single(Function(x) x.Name = routeName)
         world.Avatar.Location = route.Destination
