@@ -1,5 +1,6 @@
 ﻿Friend Class OtherModel
     Implements IOtherModel
+
     Private ReadOnly world As IWorld
     Private ReadOnly characterId As String
 
@@ -11,6 +12,17 @@
     Public ReadOnly Property Name As String Implements IOtherModel.Name
         Get
             Return world.GetCharacter(characterId).Name
+        End Get
+    End Property
+
+    Public ReadOnly Property Interactions As IEnumerable(Of String) Implements IOtherModel.Interactions
+        Get
+            Dim result As New List(Of String)
+            Dim character = world.GetCharacter(characterId)
+            If character.HasTag(CanShaveTag) Then
+                result.Add(ShaveInteraction)
+            End If
+            Return result
         End Get
     End Property
 
