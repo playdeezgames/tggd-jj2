@@ -3,7 +3,7 @@
         New Dictionary(Of String, Func(Of IWorldModel, Boolean)) From
         {
             {MoveText, AddressOf MoveView.Run},
-            {InteractText, AddressOf InteractAction.Run},
+            {InteractText, AddressOf InteractMenuView.Run},
             {MainMenuText, AddressOf GameMenuAction.Run}
         }
     Private ReadOnly promptConditions As IReadOnlyList(Of (text As String, condition As Func(Of IWorldModel, Boolean))) =
@@ -20,7 +20,7 @@
             AnsiConsole.MarkupLine($"Character: {model.Avatar.CharacterName}")
             AnsiConsole.MarkupLine($"Location: {model.Avatar.LocationName}")
             If model.Avatar.HasOthers Then
-                AnsiConsole.MarkupLine($"Others: {String.Join(", ", model.Avatar.OtherCharacterNames)}")
+                AnsiConsole.MarkupLine($"Others: {String.Join(", ", model.Avatar.OtherCharacterNames.Select(Function(x) x.name))}")
             End If
             If model.Avatar.HasRoutes Then
                 AnsiConsole.MarkupLine($"Exits: {String.Join(", ", model.Avatar.RouteNames)}")

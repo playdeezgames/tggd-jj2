@@ -29,4 +29,11 @@
         Next
         OkPrompt()
     End Sub
+    Friend Function ObfuscateCharacter(item As (name As String, id As String)) As String
+        Dim result = item.name + item.id
+        For Each x In Enumerable.Range(0, item.id.Length)
+            result.Append("\b")
+        Next
+        Return result
+    End Function
 End Module

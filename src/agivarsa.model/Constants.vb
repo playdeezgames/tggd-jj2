@@ -3,6 +3,7 @@
     Friend Const CanShaveTag As String = "CanShave"
     Friend Const ColumnStatistic As String = "Column"
     Friend Const EastDirection As String = "East"
+    Friend Const InteractionCharacterIdTrait As String = "InteractionCharacterId"
     Friend Const NorthDirection As String = "North"
     Friend Const OverworldTag As String = "Overworld"
     Friend Const RowStatistic As String = "Row"

@@ -1,5 +1,6 @@
 ﻿Friend Class AvatarModel
     Implements IAvatarModel
+
     Private ReadOnly world As IWorld
     Sub New(world As IWorld)
         Me.world = world
@@ -40,14 +41,35 @@
         End Get
     End Property
 
-    Public ReadOnly Property OtherCharacterNames As IEnumerable(Of String) Implements IAvatarModel.OtherCharacterNames
+    Public ReadOnly Property OtherCharacterNames As IEnumerable(Of (name As String, id As String)) Implements IAvatarModel.OtherCharacterNames
         Get
-            Return world.Avatar.Others.Select(Function(x) x.Name)
+            Return world.Avatar.Others.Select(Function(x) (x.Name, x.Id))
+        End Get
+    End Property
+
+    Public ReadOnly Property InteractableOthers As IEnumerable(Of (name As String, id As String)) Implements IAvatarModel.InteractableOthers
+        Get
+            Return world.
+                Avatar.
+                Others.
+                Where(AddressOf CharacterExtensions.CanInteract).
+                Select(Function(x) (x.Name, x.Id))
+        End Get
+    End Property
+
+    Public ReadOnly Property InteractionTarget As (name As String, id As String) Implements IAvatarModel.InteractionTarget
+        Get
+            Dim id = world.Avatar.GetTrait(InteractionCharacterIdTrait)
+            Return (world.GetCharacter(id).Name, id)
         End Get
     End Property
 
     Public Sub Move(routeName As String) Implements IAvatarModel.Move
         Dim route = world.Avatar.Location.Routes.Single(Function(x) x.Name = routeName)
         world.Avatar.Location = route.Destination
+    End Sub
+
+    Public Sub SetInteractionTarget(characterId As String) Implements IAvatarModel.SetInteractionTarget
+        world.Avatar.SetTrait(InteractionCharacterIdTrait, characterId)
     End Sub
 End Class

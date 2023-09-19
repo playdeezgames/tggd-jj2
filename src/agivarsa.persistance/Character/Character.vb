@@ -3,8 +3,8 @@
     Implements ICharacter
 
 
-    Public Sub New(data As WorldData, characterName As String)
-        MyBase.New(data, characterName)
+    Public Sub New(data As WorldData, characterId As String)
+        MyBase.New(data, characterId)
     End Sub
 
     Public Property Name As String Implements ICharacter.Name
