@@ -42,6 +42,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property All As IEnumerable(Of IOtherModel) Implements IAvatarOthersModel.All
+        Get
+            Return world.Avatar.Others.Select(Function(x) New OtherModel(world, x.Id))
+        End Get
+    End Property
+
     Public Sub LegacySetInteractionTarget(characterId As String) Implements IAvatarOthersModel.LegacySetInteractionTarget
         world.Avatar.SetTrait(InteractionCharacterIdTrait, characterId)
     End Sub
