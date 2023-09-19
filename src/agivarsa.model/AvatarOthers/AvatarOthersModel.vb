@@ -18,13 +18,6 @@
             Return world.Avatar.Others.Any
         End Get
     End Property
-
-    Public ReadOnly Property LegacyAll As IEnumerable(Of (name As String, id As String)) Implements IAvatarOthersModel.LegacyAll
-        Get
-            Return world.Avatar.Others.Select(Function(x) (x.Name, x.Id))
-        End Get
-    End Property
-
     Public ReadOnly Property LegacyInteractables As IEnumerable(Of (name As String, id As String)) Implements IAvatarOthersModel.LegacyInteractables
         Get
             Return world.

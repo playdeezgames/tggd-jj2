@@ -20,7 +20,7 @@
             AnsiConsole.MarkupLine($"Character: {model.Avatar.Name}")
             AnsiConsole.MarkupLine($"Location: {model.Avatar.Location.Name}")
             If model.Avatar.Others.Exist Then
-                AnsiConsole.MarkupLine($"Others: {String.Join(", ", model.Avatar.Others.LegacyAll.Select(Function(x) x.name))}")
+                AnsiConsole.MarkupLine($"Others: {String.Join(", ", model.Avatar.Others.All.Select(Function(x) x.Name))}")
             End If
             If model.Avatar.Location.HasRoutes Then
                 AnsiConsole.MarkupLine($"Exits: {String.Join(", ", model.Avatar.Location.Routes)}")
