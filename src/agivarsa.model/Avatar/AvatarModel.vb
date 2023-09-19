@@ -10,12 +10,6 @@
             Return world.Avatar.Name
         End Get
     End Property
-
-    Public ReadOnly Property CanInteract As Boolean Implements IAvatarModel.CanInteract
-        Get
-            Return world.Avatar.Others.Any(AddressOf CharacterExtensions.CanInteract)
-        End Get
-    End Property
     Public ReadOnly Property InteractionTarget As (name As String, id As String) Implements IAvatarModel.InteractionTarget
         Get
             Dim id = world.Avatar.GetTrait(InteractionCharacterIdTrait)
