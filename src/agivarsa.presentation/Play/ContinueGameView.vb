@@ -23,7 +23,7 @@
                 AnsiConsole.MarkupLine($"Others: {String.Join(", ", model.Avatar.OtherCharacterNames.Select(Function(x) x.name))}")
             End If
             If model.Avatar.Location.HasRoutes Then
-                AnsiConsole.MarkupLine($"Exits: {String.Join(", ", model.Avatar.RouteNames)}")
+                AnsiConsole.MarkupLine($"Exits: {String.Join(", ", model.Avatar.Location.Routes)}")
             End If
             command = PromptUser(NowWhatPrompt, model, promptConditions)
         Loop Until commandTable(command)(model)

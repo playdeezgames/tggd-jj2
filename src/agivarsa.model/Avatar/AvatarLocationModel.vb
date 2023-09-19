@@ -19,7 +19,7 @@
         End Get
     End Property
 
-    Public ReadOnly Property RouteNames As IEnumerable(Of String) Implements IAvatarLocationModel.RouteNames
+    Public ReadOnly Property Routes As IEnumerable(Of String) Implements IAvatarLocationModel.Routes
         Get
             Return world.Avatar.Location.Routes.Select(Function(x) x.Name)
         End Get
