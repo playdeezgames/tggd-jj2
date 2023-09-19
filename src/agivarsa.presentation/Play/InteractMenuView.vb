@@ -1,7 +1,7 @@
 ﻿Friend Module InteractMenuView
 
     Friend Function Run(model As IWorldModel) As Boolean
-        Dim interactableCharacters = model.Avatar.Others.Interactable
+        Dim interactableCharacters = model.Avatar.Others.LegacyInteractables
         Select Case interactableCharacters.Count
             Case 0
                 Return NoInteractableCharacter(model)
@@ -27,7 +27,7 @@
     End Function
 
     Private Function InteractWith(model As IWorldModel, otherCharacterId As String) As Boolean
-        model.Avatar.Others.SetInteractionTarget(otherCharacterId)
+        model.Avatar.Others.LegacySetInteractionTarget(otherCharacterId)
         Return InteractionView.Run(model)
     End Function
 

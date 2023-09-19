@@ -19,13 +19,13 @@
         End Get
     End Property
 
-    Public ReadOnly Property All As IEnumerable(Of (name As String, id As String)) Implements IAvatarOthersModel.All
+    Public ReadOnly Property LegacyAll As IEnumerable(Of (name As String, id As String)) Implements IAvatarOthersModel.LegacyAll
         Get
             Return world.Avatar.Others.Select(Function(x) (x.Name, x.Id))
         End Get
     End Property
 
-    Public ReadOnly Property Interactable As IEnumerable(Of (name As String, id As String)) Implements IAvatarOthersModel.Interactable
+    Public ReadOnly Property LegacyInteractables As IEnumerable(Of (name As String, id As String)) Implements IAvatarOthersModel.LegacyInteractables
         Get
             Return world.
                 Avatar.
@@ -35,14 +35,14 @@
         End Get
     End Property
 
-    Public ReadOnly Property InteractionTarget As (name As String, id As String) Implements IAvatarOthersModel.InteractionTarget
+    Public ReadOnly Property LegacyInteractionTarget As (name As String, id As String) Implements IAvatarOthersModel.LegacyInteractionTarget
         Get
             Dim id = world.Avatar.GetTrait(InteractionCharacterIdTrait)
             Return (world.GetCharacter(id).Name, id)
         End Get
     End Property
 
-    Public Sub SetInteractionTarget(characterId As String) Implements IAvatarOthersModel.SetInteractionTarget
+    Public Sub LegacySetInteractionTarget(characterId As String) Implements IAvatarOthersModel.LegacySetInteractionTarget
         world.Avatar.SetTrait(InteractionCharacterIdTrait, characterId)
     End Sub
 End Class
