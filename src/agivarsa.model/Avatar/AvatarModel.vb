@@ -16,16 +16,6 @@
             Return world.Avatar.Others.Any(AddressOf CharacterExtensions.CanInteract)
         End Get
     End Property
-    Public ReadOnly Property InteractableOthers As IEnumerable(Of (name As String, id As String)) Implements IAvatarModel.InteractableOthers
-        Get
-            Return world.
-                Avatar.
-                Others.
-                Where(AddressOf CharacterExtensions.CanInteract).
-                Select(Function(x) (x.Name, x.Id))
-        End Get
-    End Property
-
     Public ReadOnly Property InteractionTarget As (name As String, id As String) Implements IAvatarModel.InteractionTarget
         Get
             Dim id = world.Avatar.GetTrait(InteractionCharacterIdTrait)
