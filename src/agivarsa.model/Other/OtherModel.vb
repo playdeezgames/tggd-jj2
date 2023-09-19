@@ -31,4 +31,30 @@
             Return characterId
         End Get
     End Property
+
+    Public Function Interact(interaction As String) As String() Implements IOtherModel.Interact
+        Select Case interaction
+            Case ShaveInteraction
+                Return Shave().ToArray
+            Case Else
+                Throw New NotImplementedException
+        End Select
+    End Function
+
+    Private Function Shave() As IEnumerable(Of String)
+        Dim character = world.GetCharacter(characterId)
+        If Not character.HasTag(CanShaveTag) Then
+            Return New List(Of String) From
+                {
+                    $"{world.Avatar.Name} cannot shave {character.Name}."
+                }
+        End If
+        character.RemoveTag(CanShaveTag)
+        Dim result = New List(Of String) From
+            {
+                    $"{world.Avatar.Name} shaves {character.Name}."
+            }
+        character.Name = $"Shorn {character.Name}"
+        Return result
+    End Function
 End Class

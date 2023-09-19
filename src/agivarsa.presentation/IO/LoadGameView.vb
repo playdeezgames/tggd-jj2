@@ -4,6 +4,7 @@
         If Not String.IsNullOrEmpty(filename) Then
             If model.Load(filename) Then
                 MessageBox(GameLoadedMessage)
+                Return ContinueGameView.Run(model)
             Else
                 MessageBox(FailedLoadMessage)
             End If

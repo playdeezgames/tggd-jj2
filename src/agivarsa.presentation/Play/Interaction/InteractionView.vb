@@ -11,6 +11,7 @@
                 model.Avatar.Others.CurrentInteractee = Nothing
                 Return False
             Case Else
+                MessageBox(target.Interact(answer))
                 Return False
         End Select
     End Function
