@@ -15,6 +15,7 @@
     Friend Const GameTitle As String = "AGIVARSA"
     Friend Const InteractText = "Interact..."
     Friend Const InteractWithPrompt As String = "[olive]Interact With:[/]"
+    Friend Const InventoryText = "Inventory"
     Friend Const LoadGameText As String = "Load Game"
     Friend Const MainMenuText As String = "Main Menu"
     Friend Const MainMenuTitle As String = "Main Menu:"

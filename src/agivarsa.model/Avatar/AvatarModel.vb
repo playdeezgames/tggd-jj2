@@ -21,4 +21,10 @@
             Return New AvatarOthersModel(world)
         End Get
     End Property
+
+    Public ReadOnly Property Inventory As IAvatarInventoryModel Implements IAvatarModel.Inventory
+        Get
+            Return New AvatarInventoryModel(world)
+        End Get
+    End Property
 End Class

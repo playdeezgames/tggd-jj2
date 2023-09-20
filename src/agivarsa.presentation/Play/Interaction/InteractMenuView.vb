@@ -13,7 +13,7 @@
     End Function
 
     Private Function ChooseInteractable(model As IWorldModel, otherCharacters As IEnumerable(Of IOtherModel)) As Boolean
-        Dim table = otherCharacters.ToDictionary(AddressOf ObfuscateCharacter, Function(x) x)
+        Dim table = otherCharacters.ToDictionary(Function(x) x.UniqueName, Function(x) x)
         Dim prompt As New SelectionPrompt(Of String) With {.Title = InteractWithPrompt}
         prompt.AddChoice(NeverMindText)
         prompt.AddChoices(table.Keys.ToArray)

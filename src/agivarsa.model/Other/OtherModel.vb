@@ -26,6 +26,16 @@
         End Get
     End Property
 
+    Public ReadOnly Property UniqueName As String Implements IOtherModel.UniqueName
+        Get
+            Dim result = Name + Id
+            For Each x In Enumerable.Range(0, Id.Length)
+                result.Append(ChrW(8))
+            Next
+            Return result
+        End Get
+    End Property
+
     Private ReadOnly Property Id As String Implements IOtherModel.Id
         Get
             Return characterId
