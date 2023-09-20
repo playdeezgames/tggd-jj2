@@ -7,5 +7,6 @@
     ReadOnly Property Others As IEnumerable(Of ICharacter)
     ReadOnly Property HasItems As Boolean
     Sub AddItem(item As IItem)
+    Sub RemoveItem(item As IItem)
     ReadOnly Property Items As IEnumerable(Of IItem)
 End Interface

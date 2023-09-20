@@ -5,6 +5,8 @@
     Friend Const ConfirmQuitPrompt As String = "[red]Are you sure you want to quit?[/]"
     Friend Const ConfirmAbandonGamePrompt As String = "[red]Are you sure you want to abandon the game?[/]"
     Friend Const ContinueGameText As String = "Continue Game"
+    Friend Const DropAllText As String = "Drop All"
+    Friend Const DropHalfText As String = "Drop Half"
     Friend Const EmbarkText As String = "Embark!"
     Friend Const FailedLoadMessage As String = "[red]Game Load Failed![/]"
     Friend Const FailedSaveMessage As String = "[red]Game Save Failed![/]"

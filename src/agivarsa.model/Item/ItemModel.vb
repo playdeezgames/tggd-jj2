@@ -19,4 +19,9 @@
             Return item.Name + item.Id.ToString() + String.Join("", Enumerable.Range(0, item.Id.ToString().Length).Select(Function(x) ChrW(8)))
         End Get
     End Property
+
+    Public Sub Drop() Implements IItemModel.Drop
+        character.RemoveItem(item)
+        character.Location.AddItem(item)
+    End Sub
 End Class

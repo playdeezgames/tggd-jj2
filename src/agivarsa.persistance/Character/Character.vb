@@ -68,4 +68,8 @@
     Public Sub AddItem(item As IItem) Implements ICharacter.AddItem
         CharacterData.ItemIds.Add(item.Id)
     End Sub
+
+    Public Sub RemoveItem(item As IItem) Implements ICharacter.RemoveItem
+        CharacterData.ItemIds.Remove(item.Id)
+    End Sub
 End Class

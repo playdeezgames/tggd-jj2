@@ -1,6 +1,4 @@
-﻿Imports System.Diagnostics.CodeAnalysis
-
-Friend Class Location
+﻿Friend Class Location
     Inherits LocationDataClient
     Implements ILocation
     Public Sub New(worldData As WorldData, locationId As Integer)
@@ -49,6 +47,10 @@ Friend Class Location
 
     Public Sub RemoveCharacter(character As ICharacter) Implements ILocation.RemoveCharacter
         LocationData.CharacterIds.Remove(character.Id)
+    End Sub
+
+    Public Sub AddItem(item As IItem) Implements ILocation.AddItem
+        LocationData.ItemIds.Add(item.Id)
     End Sub
 
     Public Function CreateRoute(name As String, destination As ILocation) As IRoute Implements ILocation.CreateRoute

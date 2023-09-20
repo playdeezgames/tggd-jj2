@@ -62,6 +62,8 @@
         character.RemoveTag(CanShaveTag)
         Dim item = world.CreateItem(YakHairName, YakHairItemType)
         world.Avatar.AddItem(item)
+        world.Avatar.AddItem(world.CreateItem(YakHairName, YakHairItemType)) 'todo:deleteme
+        world.Avatar.AddItem(world.CreateItem(YakHairName, YakHairItemType)) 'todo:deleteme
         Dim result = New List(Of String) From
             {
                     $"{world.Avatar.Name} shaves {character.Name}.",
