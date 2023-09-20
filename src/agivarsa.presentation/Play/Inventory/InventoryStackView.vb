@@ -16,6 +16,13 @@
         Dim prompt As New SelectionPrompt(Of String) With {.Title = $"[olive]{itemStack.First.Name}(x{itemStack.Count})[/]"}
         prompt.AddChoice(NeverMindText)
         Dim table = itemStack.ToDictionary(Function(x) x.UniqueName, Function(x) x)
-        Return False
+        prompt.AddChoices(table.Keys)
+        Dim answer = AnsiConsole.Prompt(prompt)
+        Select Case answer
+            Case NeverMindText
+                Return False
+            Case Else
+                Return InventoryDetailView.Run(model, table(answer))
+        End Select
     End Function
 End Module
