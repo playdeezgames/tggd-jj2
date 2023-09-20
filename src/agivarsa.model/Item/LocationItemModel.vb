@@ -1,16 +1,18 @@
-﻿Friend Class ItemModel
+﻿Friend Class LocationItemModel
     Implements IItemModel
+    Private ReadOnly location As ILocation
     Private ReadOnly character As ICharacter
     Private ReadOnly item As IItem
 
-    Public Sub New(character As ICharacter, item As IItem)
+    Public Sub New(location As ILocation, character As ICharacter, item As IItem)
+        Me.location = location
         Me.character = character
         Me.item = item
     End Sub
 
     Public ReadOnly Property Name As String Implements IItemModel.Name
         Get
-            Return Item.Name
+            Return item.Name
         End Get
     End Property
 
@@ -21,7 +23,11 @@
     End Property
 
     Public Sub Drop() Implements IItemModel.Drop
-        character.RemoveItem(item)
-        character.Location.AddItem(item)
+        Throw New NotImplementedException("Cannot drop that which is already on the ground!")
+    End Sub
+
+    Public Sub Take() Implements IItemModel.Take
+        character.AddItem(item)
+        location.RemoveItem(item)
     End Sub
 End Class

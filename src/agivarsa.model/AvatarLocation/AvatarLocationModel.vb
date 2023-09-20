@@ -31,6 +31,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property Inventory As IInventoryModel Implements IAvatarLocationModel.Inventory
+        Get
+            Return New LocationInventoryModel(world.Avatar.Location, world.Avatar)
+        End Get
+    End Property
+
     Public Sub Move(routeName As String) Implements IAvatarLocationModel.Move
         Dim route = world.Avatar.Location.Routes.Single(Function(x) x.Name = routeName)
         world.Avatar.Location = route.Destination

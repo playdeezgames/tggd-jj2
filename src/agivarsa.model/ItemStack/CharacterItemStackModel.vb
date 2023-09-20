@@ -1,4 +1,4 @@
-﻿Friend Class ItemStackModel
+﻿Friend Class CharacterItemStackModel
     Implements IItemStackModel
     Private ReadOnly character As ICharacter
     Private ReadOnly itemName As String

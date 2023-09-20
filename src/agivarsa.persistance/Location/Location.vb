@@ -47,6 +47,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property Items As IEnumerable(Of IItem) Implements ILocation.Items
+        Get
+            Return LocationData.ItemIds.Select(Function(x) New Item(WorldData, x))
+        End Get
+    End Property
+
     Public Sub AddCharacter(character As ICharacter) Implements ILocation.AddCharacter
         LocationData.CharacterIds.Add(character.Id)
     End Sub
@@ -57,6 +63,10 @@
 
     Public Sub AddItem(item As IItem) Implements ILocation.AddItem
         LocationData.ItemIds.Add(item.Id)
+    End Sub
+
+    Public Sub RemoveItem(item As IItem) Implements ILocation.RemoveItem
+        LocationData.ItemIds.Remove(item.Id)
     End Sub
 
     Public Function CreateRoute(name As String, destination As ILocation) As IRoute Implements ILocation.CreateRoute

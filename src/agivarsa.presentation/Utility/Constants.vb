@@ -33,5 +33,9 @@
     Friend Const OkText As String = "Ok"
     Friend Const QuitText As String = "Quit"
     Friend Const SaveGameText As String = "Save Game"
+    Friend Const TakeAllText = "Take All"
+    Friend Const TakeHalfText = "Take Half"
+    Friend Const TakeOneText = "Take One"
+    Friend Const TakeText = "Take"
     Friend Const YesText As String = "Yes"
 End Module

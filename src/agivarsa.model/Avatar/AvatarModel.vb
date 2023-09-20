@@ -22,9 +22,9 @@
         End Get
     End Property
 
-    Public ReadOnly Property Inventory As IAvatarInventoryModel Implements IAvatarModel.Inventory
+    Public ReadOnly Property Inventory As IInventoryModel Implements IAvatarModel.Inventory
         Get
-            Return New AvatarInventoryModel(world)
+            Return New CharacterInventoryModel(world.Avatar)
         End Get
     End Property
 End Class
