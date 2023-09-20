@@ -9,4 +9,5 @@
     ReadOnly Property HasRoutes As Boolean
     ReadOnly Property Routes As IEnumerable(Of IRoute)
     ReadOnly Property Characters As IEnumerable(Of ICharacter)
+    ReadOnly Property HasItems As Boolean
 End Interface

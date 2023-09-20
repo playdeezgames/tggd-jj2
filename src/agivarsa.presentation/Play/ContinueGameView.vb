@@ -5,12 +5,14 @@
             {MoveText, AddressOf MoveView.Run},
             {InteractText, AddressOf InteractMenuView.Run},
             {MainMenuText, AddressOf GameMenuAction.Run},
-            {InventoryText, AddressOf InventoryView.Run}
+            {InventoryText, AddressOf InventoryView.Run},
+            {GroundText, AddressOf GroundView.Run}
         }
     Private ReadOnly promptConditions As IReadOnlyList(Of (text As String, condition As Func(Of IWorldModel, Boolean))) =
         New List(Of (text As String, condition As Func(Of IWorldModel, Boolean))) From
         {
             (MoveText, Function(m) m.Avatar.Location.HasRoutes),
+            (GroundText, Function(m) m.Avatar.Location.HasItems),
             (InventoryText, Function(m) m.Avatar.Inventory.Exists),
             (InteractText, Function(m) m.Avatar.Others.HasInteractees),
             (MainMenuText, Function(m) True)

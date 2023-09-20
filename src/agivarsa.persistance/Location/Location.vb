@@ -41,6 +41,12 @@
         End Get
     End Property
 
+    Public ReadOnly Property HasItems As Boolean Implements ILocation.HasItems
+        Get
+            Return LocationData.ItemIds.Any
+        End Get
+    End Property
+
     Public Sub AddCharacter(character As ICharacter) Implements ILocation.AddCharacter
         LocationData.CharacterIds.Add(character.Id)
     End Sub

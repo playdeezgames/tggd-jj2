@@ -3,4 +3,5 @@
     ReadOnly Property HasRoutes As Boolean
     ReadOnly Property Routes As IEnumerable(Of String)
     Sub Move(routeName As String)
+    ReadOnly Property HasItems As Boolean
 End Interface
