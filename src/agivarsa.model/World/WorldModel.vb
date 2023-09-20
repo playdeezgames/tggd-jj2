@@ -23,19 +23,23 @@ Public Class WorldModel
     End Sub
 
     Private Sub InitializeWorld(world As World)
-        'overworld
         Dim overworldLocation = InitializedOverworld(world)
+        Dim hutLocation As ILocation = InitializeHut(world, overworldLocation)
+        world.Avatar = InitializeAvatar(world, hutLocation)
+    End Sub
 
+    Private Shared Function InitializeAvatar(world As World, hutLocation As ILocation) As ICharacter
+        Return world.CreateCharacter("avatar", "Tagon", AvatarCharacterType, hutLocation)
+    End Function
+
+    Private Shared Function InitializeHut(world As World, overworldLocation As ILocation) As ILocation
         Dim hutLocation = world.CreateLocation("Hut")
         hutLocation.CreateRoute("Out", overworldLocation)
         overworldLocation.CreateRoute("In", hutLocation)
-
-        world.Avatar = world.CreateCharacter("avatar", "Tagon", AvatarCharacterType, hutLocation)
-    End Sub
+        Return hutLocation
+    End Function
 
     Private Function InitializedOverworld(world As World) As ILocation
-        Const WorldColumns = 7
-        Const WorldRows = 7
         Dim locations(WorldColumns, WorldRows) As ILocation
         For Each column In Enumerable.Range(0, WorldColumns)
             For Each row In Enumerable.Range(0, WorldRows)
@@ -53,10 +57,14 @@ Public Class WorldModel
                 End If
             Next
         Next
-        Dim yak = world.CreateCharacter("yak", "Yak", "Yak", locations(RNG.FromRange(0, WorldColumns - 1), RNG.FromRange(0, WorldRows - 1)))
-        yak.SetTag(CanShaveTag)
+        InitializeYak(world, locations)
         Return locations(RNG.FromRange(0, WorldColumns - 1), RNG.FromRange(0, WorldRows - 1))
     End Function
+
+    Private Shared Sub InitializeYak(world As World, locations(,) As ILocation)
+        Dim yak = world.CreateCharacter("yak", "Yak", YakCharacterType, locations(RNG.FromRange(0, WorldColumns - 1), RNG.FromRange(0, WorldRows - 1)))
+        yak.SetTag(CanShaveTag)
+    End Sub
 
     Public Sub Abandon() Implements IWorldModel.Abandon
         worldData = Nothing
