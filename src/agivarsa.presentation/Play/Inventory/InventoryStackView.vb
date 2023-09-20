@@ -20,6 +20,7 @@
         If itemStack.Count > 2 Then
             prompt.AddChoice(DropHalfText)
         End If
+        prompt.AddChoice(DropOneText)
         Dim table = itemStack.ToDictionary(Function(x) x.UniqueName, Function(x) x)
         prompt.AddChoices(table.Keys)
         Dim answer = AnsiConsole.Prompt(prompt)
@@ -27,19 +28,13 @@
             Case NeverMindText
                 Return False
             Case DropAllText
-                Return Drop(model, itemStack)
+                Return DropAction.Run(model, itemStack)
             Case DropHalfText
-                Return Drop(model, itemStack.Take(itemStack.Count \ 2))
+                Return DropAction.Run(model, itemStack.Take(itemStack.Count \ 2))
+            Case DropOneText
+                Return DropAction.Run(model, itemStack.First)
             Case Else
                 Return InventoryDetailView.Run(model, table(answer))
         End Select
-    End Function
-
-    Private Function Drop(model As IWorldModel, itemStack As IEnumerable(Of IItemModel)) As Boolean
-        MessageBox($"{model.Avatar.Name} drops {itemStack.Count} {itemStack.First.Name}.")
-        For Each item In itemStack
-            item.Drop()
-        Next
-        Return False
     End Function
 End Module
