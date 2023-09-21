@@ -59,6 +59,12 @@
                     $"{world.Avatar.Name} cannot shave {character.Name}."
                 }
         End If
+        If Not world.Avatar.Items.Any(Function(x) x.HasTag(CanShaveTag)) Then
+            Return New List(Of String) From
+                {
+                    $"{world.Avatar.Name} has nothing with which to shear {character.Name}."
+                }
+        End If
         character.RemoveTag(CanShaveTag)
         Dim item = world.CreateItem(YakHairName, YakHairItemType)
         world.Avatar.AddItem(item)

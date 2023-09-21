@@ -6,7 +6,7 @@
         Select Case AnsiConsole.Prompt(prompt)
             Case NeverMindText
                 Return False
-            Case DropText
+            Case TakeText
                 TakeAction.Run(model, itemModel)
         End Select
         Return False

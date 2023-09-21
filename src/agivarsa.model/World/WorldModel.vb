@@ -23,7 +23,7 @@ Public Class WorldModel
     End Sub
 
     Private Sub InitializeWorld(world As World)
-        Dim overworldLocation = InitializedOverworld(world)
+        Dim overworldLocation = InitializeOverworld(world)
         Dim hutLocation As ILocation = InitializeHut(world, overworldLocation)
         world.Avatar = InitializeAvatar(world, hutLocation)
     End Sub
@@ -39,7 +39,7 @@ Public Class WorldModel
         Return hutLocation
     End Function
 
-    Private Function InitializedOverworld(world As World) As ILocation
+    Private Function InitializeOverworld(world As World) As ILocation
         Dim locations(WorldColumns, WorldRows) As ILocation
         For Each column In Enumerable.Range(0, WorldColumns)
             For Each row In Enumerable.Range(0, WorldRows)
@@ -58,8 +58,18 @@ Public Class WorldModel
             Next
         Next
         InitializeYak(world, locations)
+        InitializeShears(world, locations)
         Return locations(RNG.FromRange(0, WorldColumns - 1), RNG.FromRange(0, WorldRows - 1))
     End Function
+
+    Private Sub InitializeShears(world As World, locations(,) As ILocation)
+        Dim item = world.CreateItem("Shears", ShearsItemType)
+        item.SetTag(CanShaveTag)
+        locations(
+            RNG.FromRange(0, WorldColumns - 1),
+            RNG.FromRange(0, WorldRows - 1)).
+                AddItem(Item)
+    End Sub
 
     Private Shared Sub InitializeYak(world As World, locations(,) As ILocation)
         Dim yak = world.CreateCharacter("yak", "Yak", YakCharacterType, locations(RNG.FromRange(0, WorldColumns - 1), RNG.FromRange(0, WorldRows - 1)))
